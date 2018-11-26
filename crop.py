@@ -179,11 +179,12 @@ if __name__ == '__main__':
     help = "Path to the image to be scanned")
   ap.add_argument("-d", "--directory", required = False,
     help = "Path to the image directory to be scanned")
+  ap.add_argument('--debug', action='store_true')
   args = vars(ap.parse_args())
   
   if args["image"] is not None: 
     input_path = args["image"]
-    process(input_path, 0) 
+    process(input_path, args["debug"]) 
   else:
     input_path_list = glob.glob(os.path.join(args['directory'], '*'))
     batch_process(input_path_list)
