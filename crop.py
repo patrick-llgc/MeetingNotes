@@ -76,7 +76,7 @@ def four_point_transform(image, pts):
   return warped
 
 
-def process(input_path):
+def process(input_path, debug=0):
   # load the image and compute the ratio of the old height
   # to the new height, clone it, and resize it
   image = cv2.imread(input_path)
@@ -107,11 +107,12 @@ def process(input_path):
   edged = edged_ones
    
   # show the original image and the edge detected image
-  # print("STEP 1: Edge Detection")
-  # cv2.imshow("Image", image)
-  cv2.imshow("Edged", edged)
-  cv2.waitKey(0)
-  cv2.destroyAllWindows()
+  if debug:
+    print("STEP 1: Edge Detection")
+    cv2.imshow("Image", image)
+    cv2.imshow("Edged", edged)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
   # find the contours in the edged image, keeping only the
   # largest ones, and initialize the screen contour
@@ -136,11 +137,12 @@ def process(input_path):
       break
    
   # show the contour (outline) of the piece of paper
-  # print("STEP 2: Find contours of paper")
-  cv2.drawContours(image, [screenCnt], -1, (0, 255, 0), 2)
-  cv2.imshow("Outline", image)
-  cv2.waitKey(0)
-  cv2.destroyAllWindows()
+  if debug:
+    print("STEP 2: Find contours of paper")
+    cv2.drawContours(image, [screenCnt], -1, (0, 255, 0), 2)
+    cv2.imshow("Outline", image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
   # apply the four point transform to obtain a top-down
   # view of the original image
@@ -181,7 +183,7 @@ if __name__ == '__main__':
   
   if args["image"] is not None: 
     input_path = args["image"]
-    process(input_path) 
+    process(input_path, 0) 
   else:
     input_path_list = glob.glob(os.path.join(args['directory'], '*'))
     batch_process(input_path_list)
