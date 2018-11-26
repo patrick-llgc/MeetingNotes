@@ -12,3 +12,18 @@ Or
 ```
 python crop.py -d /path/to/your/image/directory
 ```
+
+## Demo
+Example original image
+![](./assets/orig.jpg)
+
+
+Example converted image
+![](./assets/warped.jpg)
+
+## Dark themed
+Before conversion
+![](./assets/orig_dark.jpg)
+
+After conversion
+![](./assets/warped_dark.jpg)

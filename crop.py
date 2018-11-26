@@ -93,7 +93,7 @@ def process(input_path):
   gray = cv2.GaussianBlur(gray, (5, 5), 0)
   # Modification: some slides with dark themes
   lower = np.percentile(gray, 10)
-  higher = np.percentile(gray, 50)
+  higher = np.percentile(gray, 50) - 10
   edged = cv2.Canny(gray, lower, higher)
   kernel = np.ones((5, 5), np.uint8)
   edged = cv2.dilate(edged, kernel=kernel)
