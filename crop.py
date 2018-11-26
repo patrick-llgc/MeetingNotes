@@ -11,6 +11,8 @@ import os
 import glob
 from skimage.filters import threshold_local
 
+# TODO: Add manual selection of points in case of bad results
+
 
 def order_points(pts):
   # initialzie a list of coordinates that will be ordered
