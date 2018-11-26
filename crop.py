@@ -95,29 +95,39 @@ def process(input_path):
   gray = cv2.GaussianBlur(gray, (5, 5), 0)
   # Modification: some slides with dark themes
   lower = np.percentile(gray, 10)
-  higher = np.percentile(gray, 50) - 10
+  higher = np.percentile(gray, 50)
   edged = cv2.Canny(gray, lower, higher)
   kernel = np.ones((5, 5), np.uint8)
   edged = cv2.dilate(edged, kernel=kernel)
+
+  # fix the issue where the edge does not close at boundary
+  # pad the edged image by padding ones around the edge
+  edged_ones = np.ones(np.array(edged.shape) + 4, dtype=np.uint8) * 255
+  edged_ones[2:-2, 2:-2] = edged
+  edged = edged_ones
    
   # show the original image and the edge detected image
   # print("STEP 1: Edge Detection")
   # cv2.imshow("Image", image)
-  # cv2.imshow("Edged", edged)
-  # cv2.waitKey(0)
-  # cv2.destroyAllWindows()
+  cv2.imshow("Edged", edged)
+  cv2.waitKey(0)
+  cv2.destroyAllWindows()
 
   # find the contours in the edged image, keeping only the
   # largest ones, and initialize the screen contour
   cnts = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
   cnts = cnts[1]
+
   cnts = sorted(cnts, key = cv2.contourArea, reverse = True)[:5]
-   
+  # print(cnts)
+
   # loop over the contours
   for c in cnts:
+    if cv2.contourArea(c) / np.size(edged) > 0.95:
+      continue
     # approximate the contour
     peri = cv2.arcLength(c, True)
-    approx = cv2.approxPolyDP(c, 0.08 * peri, True)
+    approx = cv2.approxPolyDP(c, 0.1 * peri, True)
    
     # if our approximated contour has four points, then we
     # can assume that we have found our screen
@@ -127,10 +137,10 @@ def process(input_path):
    
   # show the contour (outline) of the piece of paper
   # print("STEP 2: Find contours of paper")
-  # cv2.drawContours(image, [screenCnt], -1, (0, 255, 0), 2)
-  # cv2.imshow("Outline", image)
-  # cv2.waitKey(0)
-  # cv2.destroyAllWindows()
+  cv2.drawContours(image, [screenCnt], -1, (0, 255, 0), 2)
+  cv2.imshow("Outline", image)
+  cv2.waitKey(0)
+  cv2.destroyAllWindows()
 
   # apply the four point transform to obtain a top-down
   # view of the original image
