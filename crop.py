@@ -78,7 +78,7 @@ def process(input_path):
   # load the image and compute the ratio of the old height
   # to the new height, clone it, and resize it
   image = cv2.imread(input_path)
-  ratio = image.shape[0] / 500.0
+  ratio = 1000.0 / image.shape[0]
   orig = image.copy()
   image = cv2.resize(image, (0, 0), fx=ratio, fy=ratio)
    
@@ -101,9 +101,9 @@ def process(input_path):
   # show the original image and the edge detected image
   # print("STEP 1: Edge Detection")
   # cv2.imshow("Image", image)
-  cv2.imshow("Edged", edged)
-  cv2.waitKey(0)
-  cv2.destroyAllWindows()
+  # cv2.imshow("Edged", edged)
+  # cv2.waitKey(0)
+  # cv2.destroyAllWindows()
 
   # find the contours in the edged image, keeping only the
   # largest ones, and initialize the screen contour
@@ -145,7 +145,7 @@ def process(input_path):
   # cv2.imshow("Scanned", cv2.resize(warped, (400, 400)))
   # cv2.waitKey(0)
 
-  output_path = input_path + '.warped.png'
+  output_path = input_path + '.warped.jpg'
   cv2.imwrite(output_path, warped)
 
 
