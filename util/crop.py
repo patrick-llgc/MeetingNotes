@@ -76,7 +76,7 @@ def four_point_transform(image, pts):
   return warped
 
 
-def process(input_path, debug=0):
+def process(input_path, debug=0, is_dark=True):
   # load the image and compute the ratio of the old height
   # to the new height, clone it, and resize it
   image = cv2.imread(input_path)
@@ -94,8 +94,12 @@ def process(input_path, debug=0):
   # cv2.destroyAllWindows()
   gray = cv2.GaussianBlur(gray, (5, 5), 0)
   # Modification: some slides with dark themes
-  lower = np.percentile(gray, 59)
-  higher = np.percentile(gray, 70)
+  if is_dark:
+    lower = np.percentile(gray, 20)
+    higher = np.percentile(gray, 50)
+  else:
+    lower = np.percentile(gray, 40)
+    higher = np.percentile(gray, 80)
   edged = cv2.Canny(gray, lower, higher)
   kernel = np.ones((5, 5), np.uint8)
   edged = cv2.dilate(edged, kernel=kernel)
@@ -114,29 +118,53 @@ def process(input_path, debug=0):
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-  # find the contours in the edged image, keeping only the
-  # largest ones, and initialize the screen contour
-  cnts = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
-  # cnts = cv2.findContours(edged.copy(), cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
-  cnts = cnts[1]
+  def find_largest_rect_contour(edged):
+    # find the contours in the edged image, keeping only the
+    # largest ones, and initialize the screen contour
+    cnts = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+    # cnts = cv2.findContours(edged.copy(), cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
+    cnts = cnts[1]
 
-  cnts = sorted(cnts, key = cv2.contourArea, reverse = True)[:5]
-  # print(cnts)
+    cnts = sorted(cnts, key = cv2.contourArea, reverse = True)[:5]
+    # print(cnts)
+    screenCnt, original_c = None, None
 
-  # loop over the contours
-  for c in cnts:
-    if cv2.contourArea(c) / np.size(edged) > 0.9:
-      continue
-    # approximate the contour
-    peri = cv2.arcLength(c, True)
-    approx = cv2.approxPolyDP(c, 0.1 * peri, True)
-   
-    # if our approximated contour has four points, then we
-    # can assume that we have found our screen
-    if len(approx) == 4:
-      screenCnt = approx
-      break
-   
+    # loop over the contours
+    for c in cnts:
+      # remove too big bboxes
+      if cv2.contourArea(c) / np.size(edged) > 0.9:
+        continue
+      # approximate the contour
+      peri = cv2.arcLength(c, True)
+      approx = cv2.approxPolyDP(c, 0.1 * peri, True)
+     
+      # if our approximated contour has four points, then we
+      # can assume that we have found our screen
+      if len(approx) == 4:
+        screenCnt = approx
+        original_c = c
+        break
+    return screenCnt, original_c
+
+  screenCnt, original_c = find_largest_rect_contour(edged)
+  if screenCnt is None or original_c is None:
+    raise ValueError('edge not found')
+
+  # infill 
+  cv2.fillPoly(edged, pts =[original_c], color=(255,255,255))
+  if debug:
+    cv2.imshow(" ", edged)
+    cv2.waitKey(0)
+
+  # then open up to remove dangling edges
+  kernel = np.ones((20, 20), np.uint8)
+  edged = cv2.morphologyEx(edged, cv2.MORPH_OPEN, kernel)
+  if debug:
+    cv2.imshow(" ", edged)
+    cv2.waitKey(0)
+
+  screenCnt, original_c = find_largest_rect_contour(edged)
+
   # show the contour (outline) of the piece of paper
   if debug:
     print("STEP 2: Find contours of paper")
@@ -188,5 +216,6 @@ if __name__ == '__main__':
     process(input_path, args["debug"]) 
   else:
     input_path_list = glob.glob(os.path.join(args['directory'], '*'))
+    input_path_list = [input_path for input_path in input_path_list if 'warped' not in input_path]
     batch_process(input_path_list)
   
