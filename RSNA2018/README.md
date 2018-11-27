@@ -34,6 +34,7 @@
       - [segmentation of kidney](#segmentation-of-kidney)
       - [Liver segmentation with active learning](#liver-segmentation-with-active-learning)
 
+Disclaimer: This is my personal notes on deep learning related talks when I attended RSNA 2018. If you are the author and find any mentioning of your work undesirable, please let me know.
 
 ## SUNDAY
 
