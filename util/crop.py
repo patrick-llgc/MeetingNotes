@@ -209,11 +209,12 @@ if __name__ == '__main__':
   ap.add_argument("-d", "--directory", required = False,
     help = "Path to the image directory to be scanned")
   ap.add_argument('--debug', action='store_true')
+  ap.add_argument('--dark', action='store_true')
   args = vars(ap.parse_args())
   
   if args["image"] is not None: 
     input_path = args["image"]
-    process(input_path, args["debug"]) 
+    process(input_path, args["debug"], is_dark=args["dark"]) 
   else:
     input_path_list = glob.glob(os.path.join(args['directory'], '*'))
     input_path_list = [input_path for input_path in input_path_list if 'warped' not in input_path]
