@@ -94,8 +94,8 @@ def process(input_path, debug=0):
   # cv2.destroyAllWindows()
   gray = cv2.GaussianBlur(gray, (5, 5), 0)
   # Modification: some slides with dark themes
-  lower = np.percentile(gray, 10)
-  higher = np.percentile(gray, 50)
+  lower = np.percentile(gray, 59)
+  higher = np.percentile(gray, 70)
   edged = cv2.Canny(gray, lower, higher)
   kernel = np.ones((5, 5), np.uint8)
   edged = cv2.dilate(edged, kernel=kernel)
@@ -117,6 +117,7 @@ def process(input_path, debug=0):
   # find the contours in the edged image, keeping only the
   # largest ones, and initialize the screen contour
   cnts = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+  # cnts = cv2.findContours(edged.copy(), cv2.RETR_CCOMP, cv2.CHAIN_APPROX_SIMPLE)
   cnts = cnts[1]
 
   cnts = sorted(cnts, key = cv2.contourArea, reverse = True)[:5]
@@ -124,7 +125,7 @@ def process(input_path, debug=0):
 
   # loop over the contours
   for c in cnts:
-    if cv2.contourArea(c) / np.size(edged) > 0.95:
+    if cv2.contourArea(c) / np.size(edged) > 0.9:
       continue
     # approximate the contour
     peri = cv2.arcLength(c, True)
@@ -139,8 +140,8 @@ def process(input_path, debug=0):
   # show the contour (outline) of the piece of paper
   if debug:
     print("STEP 2: Find contours of paper")
-    cv2.drawContours(image, [screenCnt], -1, (0, 255, 0), 2)
-    cv2.imshow("Outline", image)
+    image_with_bbox = cv2.drawContours(image.copy(), [screenCnt], -1, (0, 255, 0), 2)
+    cv2.imshow("Outline", image_with_bbox)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
