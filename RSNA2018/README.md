@@ -286,7 +286,7 @@ Disclaimer: These are my personal notes on deep learning related talks when I at
 ![](./assets/mon/IMG_0494.jpg.warped.jpg)
 
 #### 5th
-- Imsight (靓影)
+- Imsight (视见科技)
 - one month intern's work
 ![](./assets/mon/IMG_0495.jpg.warped.jpg)
 - majority voting of multiple detectors
