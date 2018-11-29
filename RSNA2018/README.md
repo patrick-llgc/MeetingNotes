@@ -440,7 +440,7 @@ Kheiron (喀戎), a UK-based company, has an impressive demo of breast generated
 
 #### GAN to insert and remove lesion from mammo
 - Dr. Anton Becker; anton.becker@usz.ch
-- paper on [ArXiv]()
+- paper on [ArXiv](https://arxiv.org/pdf/1811.07767.pdf)
 - zero-sum game: saddle point optimization problem
 - cycle GAN, image to image translation
 ![](./assets/wed/IMG_0567.jpeg.warped.jpg)
@@ -506,7 +506,7 @@ Kheiron (喀戎), a UK-based company, has an impressive demo of breast generated
 ![](./assets/wed/IMG_0605.jpeg.warped.jpg)
 ![](./assets/wed/IMG_0606.jpeg.warped.jpg)
 - 3D is similar to action recognition
-- Methods:Published at MICCAI-2017
+- Methods:Published at MICCAI-2017 on [ArXiv](https://arxiv.org/pdf/1707.06978.pdf)
 ![](./assets/wed/IMG_0607.jpeg.warped.jpg)
 ![](./assets/wed/IMG_0608.jpeg.warped.jpg)
 ![](./assets/wed/IMG_0609.jpeg.warped.jpg)
