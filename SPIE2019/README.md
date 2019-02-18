@@ -52,3 +52,42 @@
 - Q&A:
 	- Test: how about false positives in healthy regions? ROI is specified by doctors. This is only for segmentation.
 	- Patient split: yes
+
+	
+### Deep Learning Session 2
+#### Optic disc segmentation in fundus images 
+- MWSSIDOR, open dataset, 1200 images
+- ROI abstracted from fundus images with RetinaNet
+- Segmentation done with U-Net
+
+#### Learning cross-protocol radiomics and deep feature standardization from CT images of texture phantoms
+- Standardize features across scanners
+- Texture phantom scanned by various scanners
+- Classify scanned texture to learn features stable across scanners
+- Domain adversarial training with gradient reverse layer to forget about domain
+
+#### A data interpretation approach for deep learning-based prediction models
+- Model interpretability
+	- Radiomics vs deep learning
+- CNN is **ruthless** in finding discriminative features. Here is a cool story [from the Pentagon](https://www.analyticsvidhya.com/blog/2018/03/essentials-of-deep-learning-visualizing-convolutional-neural-networks/).
+- Scheme 1: modify input images to examine CNN models wrt changes in ROI (occlusion test)
+	- 4x4 grid: keep information inside one grid, but mask all other 15 girds (This does not quite make sense)
+- Scheme 2: CAM based methods
+- Notes: not very convincing
+
+
+### Breast III and Heart
+#### Visual evidence for interpreting diagnostic decision of deep neural network in computer-aided diagnosis
+- Deep learning has limited interpretability
+- Solution: CAM (class activation map) or gradCAM
+- Inspired by Radiologists' interpretation: BI-RADS
+- Margin interpretation + shape interpretation
+	- Interpretation loss
+	- Consistency loss
+	- Extra supervision loss
+- Note: the losses are too complicated to replicate
+
+#### U-Net inspired architecture ensembles for left atrial segmentation
+- Ensemble of 15 different U-Net based on different feature extractors (ResNet, DenseNet, SENet, etc)
+- Some individual model has wide error bars
+- The ensemble model does not have clear efficiency over some of the good performing models
