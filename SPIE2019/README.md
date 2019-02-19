@@ -3,6 +3,7 @@
 ### Deep Learning Session 1
 #### AI + Medical Imaging in China: Present and Future
 - Presenter Dr. Shiyuan Li from Changzheng Hospital in China
+![](./assets/IMG_0994.jpg.warped.jpg)
 - High quality medical services are needed
 	- Aging population
 - Pain point of Medical Imaging in China
@@ -15,6 +16,10 @@
 	- Malignancy diagnosis
 	- Therapeutic evaluation
 - Compared with US, China has way too many medical imaging AI company, but not enough new drug discovery, patient management, etc. 
+![](./assets/IMG_0995.jpg.warped.jpg)
+![](./assets/IMG_0996.jpg.warped.jpg)
+![](./assets/IMG_0997.jpg.warped.jpg)
+![](./assets/IMG_0999.jpg.warped.jpg)
 - Usage:
 	- lung nodule: daily use
 	- fracture and ICH: ER
@@ -65,6 +70,7 @@
 - Texture phantom scanned by various scanners
 - Classify scanned texture to learn features stable across scanners
 - Domain adversarial training with gradient reverse layer to forget about domain
+![](./assets/IMG_1001.jpg.warped.jpg)
 
 #### A data interpretation approach for deep learning-based prediction models
 - Model interpretability
@@ -98,17 +104,21 @@
 #### Large-scale evaluation of multiresolution V-Net for organ segmentation in image guided radiation therapy
 - From United Imaging, trtment planning
 - Coarse to fine. Downsample, use v-net to get mask, then crop patches, feed into v-net, segment
+![](./assets/IMG_1003.jpg.warped.jpg)
 - Model compression and memory consumption
 	- V-net too large for production. 
 		- Reduce kernel size (5x5x5 --> 3x3x3): 250 MB --> 57 MB
 		- Use bottleneck to replace conv layers with large channel sizes. Output_ch x input_ch x K x K x K ~ num of channels. C x C x 3 --> C/N x C x 1 x 1 x 1 --> C/N x C/N x 3 x 3 x 3 --> C x C/N x 1 x 1 x 1. N = 4 --> a factor of 12 compression ratio. 250 MB --> 57 MB --> 8.8 MB.
 	- GPU memory use: downsample image by 2
+![](./assets/IMG_1004.jpg.warped.jpg)
 - GTX 1080 card, 0.7 second
 - Demo: Atlas based: 3 min, V-Net: 7 seconds. More accurate than atlas based methods, e.g. in liver tips.
 - United Imaging used highly optimized backend (cuda lib) for inference. Pytorch and TF use too much memory for inference.
 - Dice loss is better than cross entropy
 	- Dice loss does not lead to overfitting
 	- Cross entropy (weighted version or focal loss) often overfits and requires validation set to pick a model. This is not always possible as the validation set is too large to evaluate after every epoch.
+
+![](./assets/IMG_1012.jpg.warped.jpg)
 
 #### StreoScenNet: surgical stereo robotic scene segmentation
 - This talk is very interesting.
@@ -134,16 +144,24 @@
 - Encoder-decoder: [ERFnet](http://www.robesafe.uah.es/personal/eduardo.romera/pdfs/Romera17tits.pdf)
 - Multi-loss, but the strong supervised loss is not needed for convergence.
 - Level-wise training is critical for convegence
+![](./assets/IMG_1005.jpg.warped.jpg)
+![](./assets/IMG_1006.jpg.warped.jpg)
+![](./assets/IMG_1007.jpg.warped.jpg)
 
 ### Automatic vertebrae localization in spine CT: a deep-learning approach for image guidance and surgical data science
+- From Jeffrey Siewerdsen's group
 - Challenge: variable imaging protocol, poor image quality, foreign objects
 - YOLO to regress points. Essentially get rid of width and height loss terms.
 - 2D vs 3D:
 	- 2D on each slice, but use aggregation network to combine the feature maps to regress x, y, z centroid
 	- 2D takes significantly less resource
 	- Not very stable
-- Deeper network, use imagenet pretrain
+- Deeper network, use imagenet pre-train
 	- Use detection sagittal slices and coronal slices
 - Faster RCNN ortho 2D gives best results
 - GT and prediction are in 3D, visualization are in 2D
 - Used closest GT for evaluation
+![](./assets/IMG_1008.jpg.warped.jpg)
+![](./assets/IMG_1009.jpg.warped.jpg)
+![](./assets/IMG_1010.jpg.warped.jpg)
+![](./assets/IMG_1011.jpg.warped.jpg)
