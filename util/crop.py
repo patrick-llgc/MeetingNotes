@@ -92,6 +92,16 @@ def process(input_path, debug=0, mode='auto'):
   orig = image.copy()
   image = cv2.resize(image, (0, 0), fx=ratio, fy=ratio)
 
+  if mode == 'manual':
+    print('mode')
+    from click_and_crop import ScreenPointGetter
+    screenCnt = ScreenPointGetter(image).get_points()
+    # print('manual specified refPts ', screenCnt)
+    warped = four_point_transform(image, screenCnt.reshape(4, 2))
+    output_path = input_path + '.warped.jpg'
+    cv2.imwrite(output_path, warped)
+    return
+
   # tell is_dark automatically
   if mode == 'auto':
     is_dark = tell_dark(image)
@@ -159,6 +169,7 @@ def process(input_path, debug=0, mode='auto'):
       # can assume that we have found our screen
       if len(approx) == 4:
         screenCnt = approx
+        print('screenCnt', screenCnt)
         original_c = c
         break
     return screenCnt, original_c
@@ -226,7 +237,8 @@ if __name__ == '__main__':
   ap.add_argument("-d", "--directory", required = False,
     help = "Path to the image directory to be scanned")
   ap.add_argument('--debug', action='store_true')
-  ap.add_argument('--mode', default='auto')
+  ap.add_argument('--mode', default='auto', help='Mode of bright or dark, \
+    could be auto, bright, dark or manual selection of four points')
   args = vars(ap.parse_args())
   
   if args["image"] is not None: 
