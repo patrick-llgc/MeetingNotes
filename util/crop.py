@@ -10,8 +10,7 @@ import cv2
 import os
 import glob
 from skimage.filters import threshold_local
-
-# TODO: Add manual selection of points in case of bad results
+from click_and_crop import ScreenPointGetter
 
 
 def order_points(pts):
@@ -84,7 +83,35 @@ def tell_dark(image_array):
   return is_dark
 
 
+def manual_process(input_path):
+  # load the image and compute the ratio of the old height
+  # to the new height, clone it, and resize it
+  image = cv2.imread(input_path)
+  ratio = 1000.0 / image.shape[0]
+  orig = image.copy()
+  image = cv2.resize(image, (0, 0), fx=ratio, fy=ratio)
+  screenCnt = ScreenPointGetter(image).get_points()
+  # print('manual specified refPts ', screenCnt)
+  warped = four_point_transform(image, screenCnt.reshape(4, 2))
+  output_path = input_path + '.warped.jpg'
+  cv2.imwrite(output_path, warped)
+
+
 def process(input_path, debug=0, mode='auto'):
+  if mode == 'manual':
+    manual_process(input_path)
+    return
+  # tell is_dark automatically
+  elif mode == 'auto':
+    is_dark = tell_dark(image)
+  elif mode == 'dark':
+    is_dark = True
+  elif mode == 'bright':
+    is_dark = False
+  else:
+    raise ValueError
+  print('dark' if is_dark else 'bright')
+  
   # load the image and compute the ratio of the old height
   # to the new height, clone it, and resize it
   image = cv2.imread(input_path)
@@ -92,25 +119,6 @@ def process(input_path, debug=0, mode='auto'):
   orig = image.copy()
   image = cv2.resize(image, (0, 0), fx=ratio, fy=ratio)
 
-  if mode == 'manual':
-    print('mode')
-    from click_and_crop import ScreenPointGetter
-    screenCnt = ScreenPointGetter(image).get_points()
-    # print('manual specified refPts ', screenCnt)
-    warped = four_point_transform(image, screenCnt.reshape(4, 2))
-    output_path = input_path + '.warped.jpg'
-    cv2.imwrite(output_path, warped)
-    return
-
-  # tell is_dark automatically
-  if mode == 'auto':
-    is_dark = tell_dark(image)
-  elif mode == 'dark':
-    is_dark = True
-  else:
-    is_dark = False
-  print('dark' if is_dark else 'bright')
-   
   # convert the image to grayscale, blur it, and find edges
   # in the image
   # gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)

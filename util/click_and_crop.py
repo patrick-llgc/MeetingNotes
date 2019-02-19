@@ -50,12 +50,12 @@ class ScreenPointGetter(object):
         self.image = clone.copy()
      
       # if the 'c' key is pressed, break from the loop
-      elif key == ord("c") or key == ord("q"):
+      elif key == ord("c") or key == ord("q") or len(self.refPt) > 4:
         break
      
     # close all open windows
     cv2.destroyAllWindows()
-    contour_pts = np.array([[[x, y]] for x, y in self.refPt])
+    contour_pts = np.array([[[x, y]] for x, y in self.refPt[:4]])
     return contour_pts
 
 if __name__ == '__main__':
