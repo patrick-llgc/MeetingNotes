@@ -15,13 +15,17 @@ or
 python crop.py -d /path/to/your/image/directory
 ```
 
-If the results look weird and you want to know which step went run, run the above command with `--debug` flag.
+If the results are wrong or the script does not do a good job cropping automatically, run the above command with `--mode manual` flag to select the four anchor points manually for perspective transformation.
+
+```
+python crop.py -i /path/to/your/image.png --mode manual
+```
+
+If the results look weird and you want to know which step went run, run the above command with `--debug` flag. This will show you intermediate steps. When an image is presented, press any key to go to the next step.
 
 ```
 python crop.py -i /path/to/your/image.png --debug
 ```
-
-This will show you intermediate steps. When an image is presented, press any key to go to the next step.
 
 ## Example
 ### Light themed
