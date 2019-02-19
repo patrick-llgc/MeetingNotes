@@ -42,3 +42,14 @@ Before conversion
 
 After conversion
 ![](./assets/warped_dark.jpg)
+
+
+### Manual selection of anchor points
+Before conversion
+![](./assets/manual_orig.jpg)
+
+Manual mark
+![](./assets/manual_orig_mark.jpg)
+
+After conversion
+![](./assets/manual_orig_mark_warped.jpg)
