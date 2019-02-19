@@ -91,3 +91,59 @@
 - Ensemble of 15 different U-Net based on different feature extractors (ResNet, DenseNet, SENet, etc)
 - Some individual model has wide error bars
 - The ensemble model does not have clear efficiency over some of the good performing models
+
+
+## Monday
+### Deep Learning
+#### Large-scale evaluation of multiresolution V-Net for organ segmentation in image guided radiation therapy
+- From United Imaging, trtment planning
+- Coarse to fine. Downsample, use v-net to get mask, then crop patches, feed into v-net, segment
+- Model compression and memory consumption
+	- V-net too large for production. 
+		- Reduce kernel size (5x5x5 --> 3x3x3): 250 MB --> 57 MB
+		- Use bottleneck to replace conv layers with large channel sizes. Output_ch x input_ch x K x K x K ~ num of channels. C x C x 3 --> C/N x C x 1 x 1 x 1 --> C/N x C/N x 3 x 3 x 3 --> C x C/N x 1 x 1 x 1. N = 4 --> a factor of 12 compression ratio. 250 MB --> 57 MB --> 8.8 MB.
+	- GPU memory use: downsample image by 2
+- GTX 1080 card, 0.7 second
+- Demo: Atlas based: 3 min, V-Net: 7 seconds. More accurate than atlas based methods, e.g. in liver tips.
+- United Imaging used highly optimized backend (cuda lib) for inference. Pytorch and TF use too much memory for inference.
+- Dice loss is better than cross entropy
+	- Dice loss does not lead to overfitting
+	- Cross entropy (weighted version or focal loss) often overfits and requires validation set to pick a model. This is not always possible as the validation set is too large to evaluate after every epoch.
+
+#### StreoScenNet: surgical stereo robotic scene segmentation
+- This talk is very interesting.
+- End to end training of a single network for all tasks
+- multi-encoder and single decoder
+- Each encoder initialized with imagenet weights. 
+	- binary segmentation
+	- instrument segmentation
+	- part segmentation
+- The results of each encoder is summed, concatenated with the same level of decoder, and generating 3 masks. 
+- Data: MICCAI 2917 endoscopic challenge
+	- Left and right. only left are annotated
+- Q&A:
+	- enforce consistency? no. the author does not think that would matter much.
+- This is very similar to the [Y-Net](https://arxiv.org/abs/1806.01907).
+
+### Deep learning based 2.5D flow field estimation for maximum intensity projections of 4D optical coherence tomography
+- OCT: cloud points?
+- Flat 3D to 2D with MIP along depth
+- census transform
+- Overall approach:
+	- Approximate x, y flow, then align x, y and concate and estimate the z-flow.
+- Encoder-decoder: [ERFnet](http://www.robesafe.uah.es/personal/eduardo.romera/pdfs/Romera17tits.pdf)
+- Multi-loss, but the strong supervised loss is not needed for convergence.
+- Level-wise training is critical for convegence
+
+### Automatic vertebrae localization in spine CT: a deep-learning approach for image guidance and surgical data science
+- Challenge: variable imaging protocol, poor image quality, foreign objects
+- YOLO to regress points. Essentially get rid of width and height loss terms.
+- 2D vs 3D:
+	- 2D on each slice, but use aggregation network to combine the feature maps to regress x, y, z centroid
+	- 2D takes significantly less resource
+	- Not very stable
+- Deeper network, use imagenet pretrain
+	- Use detection sagittal slices and coronal slices
+- Faster RCNN ortho 2D gives best results
+- GT and prediction are in 3D, visualization are in 2D
+- Used closest GT for evaluation
