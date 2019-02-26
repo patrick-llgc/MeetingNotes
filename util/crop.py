@@ -86,10 +86,6 @@ def tell_dark(image_array):
 def manual_process(input_path):
   # load the image and compute the ratio of the old height
   # to the new height, clone it, and resize it
-  image = cv2.imread(input_path)
-  ratio = 1000.0 / image.shape[0]
-  orig = image.copy()
-  image = cv2.resize(image, (0, 0), fx=ratio, fy=ratio)
   screenCnt = ScreenPointGetter(image).get_points()
   # print('manual specified refPts ', screenCnt)
   warped = four_point_transform(image, screenCnt.reshape(4, 2))
@@ -97,9 +93,16 @@ def manual_process(input_path):
   cv2.imwrite(output_path, warped)
 
 
-def process(input_path, debug=0, mode='auto'):
+def process(input_path, debug=False, mode='auto'):
+  # load the image and compute the ratio of the old height
+  # to the new height, clone it, and resize it
+  image = cv2.imread(input_path)
+  ratio = 1000.0 / image.shape[0]
+  orig = image.copy()
+  image = cv2.resize(image, (0, 0), fx=ratio, fy=ratio)
+
   if mode == 'manual':
-    manual_process(input_path)
+    manual_process(image)
     return
   # tell is_dark automatically
   elif mode == 'auto':
@@ -112,13 +115,7 @@ def process(input_path, debug=0, mode='auto'):
     raise ValueError
   print('dark' if is_dark else 'bright')
   
-  # load the image and compute the ratio of the old height
-  # to the new height, clone it, and resize it
-  image = cv2.imread(input_path)
-  ratio = 1000.0 / image.shape[0]
-  orig = image.copy()
-  image = cv2.resize(image, (0, 0), fx=ratio, fy=ratio)
-
+  
   # convert the image to grayscale, blur it, and find edges
   # in the image
   # gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -177,7 +174,7 @@ def process(input_path, debug=0, mode='auto'):
       # can assume that we have found our screen
       if len(approx) == 4:
         screenCnt = approx
-        print('screenCnt', screenCnt)
+        # print('screenCnt', screenCnt)
         original_c = c
         break
     return screenCnt, original_c
@@ -228,10 +225,10 @@ def process(input_path, debug=0, mode='auto'):
   cv2.imwrite(output_path, warped)
 
 
-def batch_process(image_path_list):
+def batch_process(image_path_list, **kwargs):
   for image_path in image_path_list:
     try:
-      process(image_path)
+      process(image_path, **kwargs)
     except:
       print(image_path)  
 
@@ -251,9 +248,9 @@ if __name__ == '__main__':
   
   if args["image"] is not None: 
     input_path = args["image"]
-    process(input_path, args["debug"], mode=args["mode"]) 
+    process(input_path, debug=args["debug"], mode=args["mode"]) 
   else:
     input_path_list = glob.glob(os.path.join(args['directory'], '*'))
     input_path_list = [input_path for input_path in input_path_list if 'warped' not in input_path]
-    batch_process(input_path_list)
+    batch_process(input_path_list, debug=args["debug"], mode=args["mode"])
   
