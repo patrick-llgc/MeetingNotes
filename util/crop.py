@@ -83,7 +83,7 @@ def tell_dark(image_array):
   return is_dark
 
 
-def manual_process(input_path):
+def manual_process(image):
   # load the image and compute the ratio of the old height
   # to the new height, clone it, and resize it
   screenCnt = ScreenPointGetter(image).get_points()
