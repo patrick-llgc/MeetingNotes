@@ -1,6 +1,10 @@
 # CVPR2019 Post AC Meeting Workshop
 02/25/2019 At UCSD
 
+20 top researchers in AI/CV field gave talk about their recent work. 
+![](./assets/IMG_1040.jpg.warped.jpg)
+![](./assets/IMG_1039.jpg.warped.jpg)
+
 #### Contact DB with thermal imagery
 - Estimating touch from thermal after-image taken by camera, understand 
 - RGB, Depth, thermal image
@@ -13,6 +17,7 @@
 - Task2Vec
 - Task embedding for meta-learning
 - ImageNet pretrained model may be suboptimal, but pretty good
+![](./assets/IMG_1034.jpg.warped.jpg)
 
 #### Colors and motions
 - Carl Vondrick, Columbia University
@@ -25,27 +30,32 @@
 
 #### BA-Net
 - Ping Tan from sfu.ca
+![](./assets/IMG_1035.jpg.warped.jpg)
 - Demon: depth and motion network for learning momnocular stereo
-	- Estimate
 - Bundle Adjustment (BA): data association problem
 - Finding correspondence between frames
 - Notes: define the acronyms! don't assume your audience to know the acronyms. 
 
 #### Understanding daily boring routine
 - David Fouhey
+![](./assets/IMG_1036.jpg.warped.jpg)
 - Use Instructional video for video
 	- Use speech2text as supervision
 - Long tails --> share concepts between tasks (the world is combinatorial)
 - Weakly supervised action recognition / zero shot learning
+![](./assets/IMG_1037.jpg.warped.jpg)
+![](./assets/IMG_1038.jpg.warped.jpg)
 
 #### Half-and-Half image-to-label
-- Erick Learned-Miller
+- Erick Learned-Miller from Amherst
+![](./assets/IMG_1041.jpg.warped.jpg)
 - Automatic adaptation of object detectors to novel domains by self-training
 - by exploiting continuity methods (this should be critical to general intelligence that can understand common sense)
 - develop methods for intelligence search --> leverage the "trail of breadcrumbs", prediction of what we cannot see
 - Half&Half by blocking half of the image and predicting what is more likely to be found in the other half
 - Note: Good researchers solve problems. Great researchers define problems.
 - Anti-symmetric vs symmetric classifier during training, but deploy in anti-symmetric context.
+![](./assets/IMG_1042.jpg.warped.jpg)
 
 #### Infer 3D hand pose from RGB images
 - Junsong Yuan, Univ of Buffalo
@@ -56,6 +66,7 @@
 #### Light Fields: from shape recovery to sparse reconstruction
 - Ravi Ramamoorthi from UCSD
 - Light fields camera: Lytro Illum
+![](./assets/IMG_1043.jpg.warped.jpg)
 - generate high quality depth map from light-field image
 - Tradeoff of light field camera: angular vs spatial resolution
 - Reconstruct a light field image from single RGB image
@@ -64,6 +75,7 @@
 - Saurabh Gupta
 - Follow path under environment change and noise in motion
 - Classical SLAM: get map first, then path planning
+![](./assets/IMG_1046.jpg.warped.jpg)
 - CVPR 2017,  cognitive mapping and planning for visual navigation
 - Operationalize insights from camera view
 - Differential mapper: decoder-encoder to predict top-down view from camera view
@@ -73,26 +85,30 @@
 #### Fast foveating camera
 - Sanjeev Koppal
 - Equiangular scan by conventional lidar
+![](./assets/IMG_1047.jpg.warped.jpg)
 - Foveated camera: capturing some of the information, some of the time regarding diff tasks
 - Foveated lidar (static scone with fovea)
 - Human's fovea < 1mm, local focus. Other animals have different scanning modes.
+![](./assets/IMG_1049.jpg.warped.jpg)
+![](./assets/IMG_1050.jpg.warped.jpg)
 
 #### Minimal supervision and zero-shot learning
 - Zeynep Akata from Max Plank
+![](./assets/IMG_1051.jpg.warped.jpg)
 - Long tail distribution in large-scale dataset. Rarely found in nature and hard to name
 - attribute as side information (symptoms in medical imaging), multi-class, multi-label issue. (Again, combinatorial!)
 - Zero-shot learning
 - CUB dataset (caltech uscd birds, 200 cls, 312 attr)
 - Instead of generating images to help classifier, generate attributes directly. This boosts zero-shot classifier significantly (CVPR 2018)
 - Toward explainable ML: Generating text explanations of the decision
-
+![](./assets/IMG_1052.jpg.warped.jpg)
 
 #### Generalization in data-driven stereo matching
 - Philippos Mordohai from Stevens I of T
 - Patch similarity estimation
 - MC-CNN for matching patches (stereo matching) by LeCun's group
 - 3DV: international conf on 3D vision
-
+![](./assets/IMG_1053.jpg.warped.jpg)
 
 #### Semantic amodal instance-level video object segmentation
 - Alex Schwing
@@ -104,7 +120,8 @@
 	- Mask Amodal: maskRCNN to predict amodal mask
 	- Mask Cascade, predict modal/vidible mask and then amodal mask
 	- Mask Joint: predict modal and amodal masks simultaneously
-
+![](./assets/IMG_1054.jpg.warped.jpg)
+![](./assets/IMG_1055.jpg.warped.jpg)
 
 #### Feedback GRUs
 - Thomas Serre from Brown Univ.
@@ -112,6 +129,8 @@
 - Hyper columns in different regions of the visual field
 - From a neural circuit (ODEs) to ML module (RNN) (NeurIPS 2018)
 - FFN: flood field neural network
+![](./assets/IMG_1056.jpg.warped.jpg)
+![](./assets/IMG_1057.jpg.warped.jpg)
 
 #### Botton up object detection
 - Philipp Kraehenbuehl
@@ -127,9 +146,11 @@
 - Marcus Rpohrbash from FAIR
 - Answer questions from visual understanding or results from OCR module
 - Problem: Slight change in question leads to diff answer!
+![](./assets/IMG_1058.jpg.warped.jpg)
 - Cycle consistency for robust VQA (consistency again!)
 	- not end-to-end trained
 - Failure prediction (how?) performance is also better
+![](./assets/IMG_1059.jpg.warped.jpg)
 
 #### Learning 3D deformable model from 2D images
 - Xiaoming Liu from Michigan State
@@ -157,6 +178,7 @@
 - Deqing Sun
 - Training multiple networks with mixture of data. The data is allocated to either network in an unsupervised fashion. The resulting network can achieve good performance on both datasets.
 - Note: is this like universal model? Leverage more datasets in unsupervised way
+![](./assets/IMG_1060.jpg.warped.jpg)
 
 #### Adapting and Generalizing across domains
 - Judy Hoffman: FAIR --> Gatech
@@ -176,6 +198,8 @@
 - Note
 	- Hoffman's work is great! needs to investigate more.
 	- Trivia: Semantic segmentation $10 per frame to annotate
+![](./assets/IMG_1061.jpg.warped.jpg)
+![](./assets/IMG_1062.jpg.warped.jpg)
 
 #### Binary image selection (BISON) interpretable evaluation of visual grounding
 - Captioning scores (BLUE-4, METEOR, etc) correlate poorly with human evaluation of correctness and detailedness
@@ -195,7 +219,8 @@
 - Notes: 
 	- This is interesting!
 	- desmos for live demos
-
+![](./assets/IMG_1063.jpg.warped.jpg)
+![](./assets/IMG_1065.jpg.warped.jpg)
 	
 #### DeepLesion
 - Le Lu from NIH/PingAn
@@ -214,13 +239,15 @@
 - Benefits of joint learning fo neural networks
 	- More data
 - Cycle consistency and path invariance
-
+![](./assets/IMG_1067.jpg.warped.jpg)
 
 #### FineGAN
 - Yong Jae Lee from UC Davis
 - Note: "What I cannot create, I do not understand" -- Richard Feynman
 - Disentangle various factors of variation: background, shape, apperances
 - Capture by a cascade of 3 stages: background, parent (mask), child
+![](./assets/IMG_1068.jpg.warped.jpg)
+![](./assets/IMG_1069.jpg.warped.jpg)
 
 
 #### Learning from video
@@ -241,7 +268,7 @@
 - How to combine the two? Neighborhood Component Analysis
 - 127 Coarse grain vs 1000 find grain in ImageNet
 - Learning with minimal supervision (imagenet has objects in the center)
-- This can be extended to semantic segmentation. How?
+- This can be extended to semantic segmentation. How? Paper rejected at CVPR2019
 
 
 #### End-to-End projector photometric compensation
@@ -251,6 +278,7 @@
 	- Not a pix2pix problem, but rather a non-linear problem
 - CompenNet to formulate the compensation problem as a deep learning problem
 - Note: state your problem clearly before diving into details!
+
 
 #### Visual learning under realistic data constraints
 - Bharath Hariharan from Cornell
