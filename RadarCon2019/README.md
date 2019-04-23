@@ -1,8 +1,8 @@
 # Radar Concerence 2019
 ## Monday
 
-### [Tutorial Session I: Machine Learning Technique for Radar ATR (automatic target recognition)](assets/T-03 Machine Learning Techniques for Radar ATR.pdf)
-
+### Tutorial Session I: Machine Learning Technique for Radar ATR (automatic target recognition)
+- [Slides](assets/T-03 Machine Learning Techniques for Radar ATR.pdf)
 - Speaker: Uttam Majumder, Air Force Research Laboratory (ra)
 	- Identify objects in RF imagery, SAR image (classification, ATR)
 	- Neuromorphic processor implementation
@@ -52,8 +52,9 @@
 
 
 
-### [Tutorial Session II: Basic theory of radar detection, and CFAR techniques](assets/T-15 Radar Detection, Performance Analysis, and CFAR.pdf) 
-- Theory: Dr. Augusto Aubry (ra)
+### Tutorial Session II: Basic theory of radar detection, and CFAR techniques
+- [Slides](assets/T-15 Radar Detection, Performance Analysis, and CFAR.pdf) 
+- Presenter: Dr. Augusto Aubry (ra)
 
 ### Basic theory of radar detection
 - Slow-fast data matrix
