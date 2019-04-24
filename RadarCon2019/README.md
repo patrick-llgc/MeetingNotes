@@ -1,4 +1,4 @@
-# Radar Concerence 2019
+# Radar Conference 2019
 ## Monday
 
 ### Tutorial Session I: Machine Learning Technique for Radar ATR (automatic target recognition)
@@ -182,14 +182,36 @@ David @ UM Amherst, @ Raytheon
 - Used CIFAR-10 to pre-train data, then apply on MSTAR dataset
 
 
-
-## Tracking
 ### Differentiate true targets from sea clutter
 - True targets (ships, RIB) vs Wave targets
 	- Longer trajectory, less variance in number of objects
 	- Shorter trajectories, high variance
 - conventional methods: adaptive thresholding
 - proposed method: integration of temporal information
+
+
+## Wednesday
+### CT reconstruction with multi-static ground penetration radar (GPR)
+- Tian Xia @ Univ. of Vermont
+- Ground coupled GPR has better resolution than air launched GPR, but moves slowly (manual vs vehicle mounted)
+- Multistatic (multi transimtter tx and multi receiver rx): spatial diversity, facilitate wide sensing coverage and fast 3D formation
+
+### RF cls and anomaly detection with CNN
+
+- Marvin Conn @ US Army Research Lab
+- RF spectrum is a limited and critical resource for sensing and communication
+- waveform classification and waveform anomaly detection
+
+### Rain detection with sea radar
+- Feature: normalized histogram from image
+- SVM for classification
+
+### L-corner NLOS (not in direct line of sight) target detection
+- X-band//mmWave/THz radar cannot be used in through wall detection (due to wavelength)
+- L-band UWB (Utra Wide-Band) radar (600 MHz bandwidth, 1~2 GHz)
+- CA-CFAR detection algorithm
+- EM wave propagation model for L band, and model-based target loalization
+
 
 
 ## Trivias
