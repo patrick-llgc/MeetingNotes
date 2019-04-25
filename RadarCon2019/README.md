@@ -168,7 +168,6 @@ David @ UM Amherst, @ Raytheon
 
 
 
-
 ## Machine Leanring in Radar
 ### RFI detection 
 - classification of images
@@ -213,17 +212,85 @@ David @ UM Amherst, @ Raytheon
 - EM wave propagation model for L band, and model-based target loalization
 
 
+## Cognitive Radar
+### sparse array selection with CNN
+- Uses CNN to approximate complex function for quick inference
+- Cognitive radar: adjust transceiver and receiver according to context
+- Combinatorial search of sparse array
+- Labeling data: with Cramer Rao Bound (conventional algorithm)
+- data: Real, Imaginary, Phase (Amplitude did not help much)
+- Q: many binary head for the CNN?
 
-## Trivias
-- Knowledge
-	- In radar, detection means applying the threshold to the ADC
+### Applying DQN for target tracking
+- the wider the bandwidth, the higher the resolution
+- Define states (environment, interference), actions and reward (SINR)
+- Previously: Policy iteration --> DQN
+- Num of states increases exponentially as num of bands and num of memory increases
+- DQN performs better than Policy iteration in determining the optimal policy (previous methods needs to build enough statistics to switch)
+- Input: states
+- Handles more memory without increasing computational complexity
+- What are the Action? --> which transmitters to use. 
+
+### GO-CFAR trained CNN target detector
+- Replace CFAR with a NN
+- Input: CFAR window, output: threhsold
+- Use GO-CFAR as a training mentor (generate label). 
+- Why not using GT? --> CFAR has the constant false alarm property. Using label may be more challenging. 
+
+## Automotive Radar
+### Deep Radar Detector
+- Daniel Brodeski @ GM Isreal
+- Imaging radar --> target goal: lidar
+- Radar point cloud differs quite a lot even for the same object 
+- Statistical nature of radar sensor + user-defined parameters of conventional radar processing techniques
+- Conventional pipeline: ADC --> 2D fft --> detection --> beamforming --> cls/object detection
+- Goal: use 4D (range, doppler, azimuth and elevation) data directly
+- Data (labeled data) --> Data augmentation --> Network --> Training
+- Dimension: ant (antenas)
+- Use calibration data as training data, but lack diversity, with zero Doppler
+- Multiply by a phase shift in range-doppler image (?). This correspondns to a spatial displacement in image domain.
+- RD detector uses U-Net, framing the problem as a segmentation
+- Used CA CFAR and Bartlett BF (beamforming) as baseline
+- RD accuracy ~ CA CFAR, but azimuth and elevation is much better than classical BF
+- DL is much more robust to noise
+- able to perform detection in 50 FPS
+
+
+### Design Estimation of DoA (degree of arrival) for mutually incoherent arrays
+- David @ Fraunhofer
+
+### Mitigation of Vehicle Vibration Effect on Automotive Radar
+- Oren Longman @ GM Isreal
+- Vibration induce inaccuracies in the estimation in the Moving Object velocity
+- Assume vibration in the longitudinal axis
+- Traditional: ADC, Range FFT, Doppler FFT, Detector, Digital Beamforming
+- proposed method: swap digital BF and Doppler FFT
+- Effect of vibration is more pronounced when moving with higher frequency. For 77 GHz it is relatively easy to counter the vibration effect, no so for 300 GHz.
+- Main Lobe and Side Lobe in the power-Hz map
+- Assumes constant velocity
+
+
+### Two-Dimensional Beamforming Automotive Radar with Orthogonal Linear Arrays
+- Radar in Reality: high range-Doppler resolution, but low angular resolution
+- Hundreds of channels needed for a full planar array
+- Achieving high resolution 4D data with affordable hardware
+- Mount antennas perpendicularly.
+- Resolve in range-doppler image (RDI) domain. Beam matching --> image matching
+
+
+	
+
+
+## Trivias learned at the RadarCon
 
 #### People
 <!--
 - John Pierro @ Telephonics
 - Wolfgang Doerr @ Aptiv
 - Euan Ward @ U of Edinburgh
-- Thomas Feuillen @ UCL-->
+- Thomas Feuillen @ UCL
+- 
+-->
 
 #### Stuff
 - TI radar
@@ -231,3 +298,12 @@ David @ UM Amherst, @ Raytheon
 	- at least 5 dim: elevation, dopler, depth, azimuth, SNR
 - RadarLog
 	- provides raw data, 2D imaging radar
+
+#### Radars
+- In radar, "detection" means applying the threshold to the ADC. In computer vision, "detection" means drawing bounding boxes around an object.
+- Radar imaging
+	- Real and imaginary of radar signal: [I and Q](http://www.radartutorial.eu/10.processing/sp06.en.html)
+	- The direction of arrival (DOA) of all detections in the RD- map are obtained via beamforming (BF). Beamforming requires sensor array calibration, where array responses to targets at various known positions are collected to construct a sensor array calibration matrix.
+	- Notice that the quality of the radar point cloud is mainly determined by the detector and beamforming.
+	- Notice that multiple user-defined parameters, such as threshold, margin, sizes and shapes of the reference and guard windows determine the performance of the conventional radar signal processing. Automotive radar is required to operate in a variety of significantly different scenes, and therefore, selection of a single optimal set of these parameters is extremely challenging and frequently an impossible task. 
+
