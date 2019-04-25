@@ -278,7 +278,78 @@ David @ UM Amherst, @ Raytheon
 - Resolve in range-doppler image (RDI) domain. Beam matching --> image matching
 
 
+## Thursday
+### DL object classification on automotive radar spectra
+- Kanil Patel @ Bosch
+- robust to weather and lighting conditions
+- DL can be used to replace part of the image processing chain
+- Detection --> point cloud --> semantic segmentation
+- DL on FFT spectrum for human fall detection, human robot cls, and human pose estimation
+- Datasets: 7 objects
+- 77 GHz carrier frequency, azimuth resolution 6 degrees 
+- Challenges
+	- Polar representation of spectra and side lobes of targets
+	- Solution: Give CNN the cues to learn the distortions: distance to center map
+- Radar spectra varies from frame to frame: use temporal filtering (majority voting) after cls on each frame
+
+
+### Personal identification and BMI via Micro-Doppler analysis with DL
+- Application: surveillance, driver assistance/monitoring in autonomous driving
+- Put objects on treadmill. They have the same speed
+- Unsupervised learning through convolutional AE, then use t-SNE for dimension reduction
+- training/test split done on the same set of subjects --> Confirmed with author that it is if for re-identification this could be understood.
+
+### Cross-frequency classification of indoor activities
+- radar monitoring: contactless and no-invasive monitoring (do not need to be worn or to interact with no plain images or videos recorded)
+- Asymmetric confusion matrix --> doest this mean premature training?
+
+
+### multiple patients behavior detection using mmWave
+- Feng Jin @ Arizona Univ
+- Each subject, 2 to 20 points with mmWave radar
+- Doppler-bin vs Time spectrum image.
+- One Doppler-time image for each cluster
+
+
+### Indoor gait asymmetry detection with indoor radar
+- Medical gait asymmetry analysis
+- manual feature extraction from spectrogram (micro-Doppler vs Time) with machine learning
+- Performs better if detected from behind
+- Time resolution vs frequency resolution
+
+### See multiple heartbeats through the wall
+- 7.3 GHz, detection range up to 3 m
+- vital sign monitoring (respiratory cycles, heart rate monitoring)
+
+### High resolution automotive radar to estimate elevation via interferometry [*]
+- Stefan Brisken @ ASTYX 
+- Put two Tx antennas with vertical offset. Need to have horizontal offset as well due to the size of the antennas
+- Use interferometry to find the elevation.
+- The elevation information is great feature for DL algorithms
+- Design constraints: cost, computational load, power consumption, # channels, packaging constraints
+
+### Passive Activity Classification Using Just WiFi Probe Response Signals
+- Use wifi signal for monitoring/surveillance.
+- Through the wall monitoring as well
+- If there is no user on the wifi, then very infrequent handshake so that it does not perform as well as data dense Wifi
+- Use a raspberry pi as wifi generator (not relying on connecting to existing Wifi)
+- Cls of Doppler Spectrogram with AlexNet
+	- Q: seems like the asymmetric features in the different axes of the spectrogram does not matter? 3x3 symmetric kernels seem to work pretty well
+
 	
+### Gesture recognition using Doppler, time and range based features
+- Evaluate if keeping the dimension of range will help with cls
+- Previously, only micro-Doppler vs time are considered.
+- Three different Doppler vs time spectrograms with diff ranges.
+- Manually crafted features with classical ML.
+- Has not addressed the question of detecting the start and end of the gesture. Cannot deploy without GT.
+
+
+### GAN-based synthetic radar micro-doppler augmentation for improved human activity recognition
+- Anchortek radar
+- LOS (line of sight); TTW (through the wall)
+- eCLEAN, thresholding and convert to grayscale
+
 
 
 ## Trivias learned at the RadarCon
@@ -306,4 +377,14 @@ David @ UM Amherst, @ Raytheon
 	- The direction of arrival (DOA) of all detections in the RD- map are obtained via beamforming (BF). Beamforming requires sensor array calibration, where array responses to targets at various known positions are collected to construct a sensor array calibration matrix.
 	- Notice that the quality of the radar point cloud is mainly determined by the detector and beamforming.
 	- Notice that multiple user-defined parameters, such as threshold, margin, sizes and shapes of the reference and guard windows determine the performance of the conventional radar signal processing. Automotive radar is required to operate in a variety of significantly different scenes, and therefore, selection of a single optimal set of these parameters is extremely challenging and frequently an impossible task. 
+- If radars do not have height information, then we can generate birds eye view for 2D bbox.
+- Oklahoma Univ has great radar center, because of weather monitoring
+- **The radar point cloud are usually done after detection and tracking. This is quite different from lidar.**
+- Radar can work in MIMO mode as well
+- ASTYX provides dense point cloud (with adjustable threshold)
+- Use of Range Doppler map
+
+
+
+
 
