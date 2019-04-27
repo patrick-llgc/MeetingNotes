@@ -9,6 +9,8 @@ import argparse
 import cv2
 import os
 import glob
+from packaging import version
+assert version.parse("3") <= version.parse(cv2.__version__) < version.parse("4")
 from skimage.filters import threshold_local
 from click_and_crop import ScreenPointGetter
 
