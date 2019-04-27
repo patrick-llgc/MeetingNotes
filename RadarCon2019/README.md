@@ -1,4 +1,8 @@
 # Radar Conference 2019
+Notes taken at IEEE Radar Conference 2019 at Boston, with a focus of Machine Learning and Deep Learning in Radar. 
+
+Compiled by Patrick Liu. 
+
 Disclaimer: If you are the author of any of the images and would not like to share the information, please contact me at `patrickl_at_xsense_dot_ai`.
 
   * [Monday](#monday)
@@ -40,7 +44,6 @@ Disclaimer: If you are the author of any of the images and would not like to sha
     + [Gesture recognition using Doppler, time and range based features](#gesture-recognition-using-doppler--time-and-range-based-features)
     + [GAN-based synthetic radar micro-doppler augmentation for improved human activity recognition](#gan-based-synthetic-radar-micro-doppler-augmentation-for-improved-human-activity-recognition)
   * [Trivias learned at the RadarCon](#trivias-learned-at-the-radarcon)
-      - [People](#people)
       - [Hardware](#hardware)
       - [Radars](#radars)
 
