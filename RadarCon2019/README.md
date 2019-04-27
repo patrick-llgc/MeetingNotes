@@ -1,5 +1,49 @@
 # Radar Conference 2019
-Disclaimer: If you are the author of any of the images and would not like to share the information, please contact me at patrickl_at_xsense_dot_ai.
+Disclaimer: If you are the author of any of the images and would not like to share the information, please contact me at `patrickl_at_xsense_dot_ai`.
+
+  * [Monday](#monday)
+    + [Tutorial Session I: Machine Learning Technique for Radar ATR (automatic target recognition)](#tutorial-session-i--machine-learning-technique-for-radar-atr--automatic-target-recognition-)
+    + [Tutorial Session II: Basic theory of radar detection, and CFAR techniques](#tutorial-session-ii--basic-theory-of-radar-detection--and-cfar-techniques)
+  * [Tuesday](#tuesday)
+    + [Radar Network](#radar-network)
+    + [Waymo](#waymo)
+    + [Google](#google)
+    + [Accurate Target Localization with automotive radars](#accurate-target-localization-with-automotive-radars)
+    + [Comparison of Automotive radar interference mitigation algorithms](#comparison-of-automotive-radar-interference-mitigation-algorithms)
+    + [Mount angle calibration](#mount-angle-calibration)
+    + [Cognitive interference mitigation](#cognitive-interference-mitigation)
+    + [Estimation of Trailer articulation angle with 2d point cloud](#estimation-of-trailer-articulation-angle-with-2d-point-cloud)
+    + [RFI detection](#rfi-detection)
+    + [Reconstruction of SAR from sensor data](#reconstruction-of-sar-from-sensor-data)
+    + [Differentiate true targets from sea clutter](#differentiate-true-targets-from-sea-clutter)
+  * [Wednesday](#wednesday)
+    + [CT reconstruction with multi-static ground penetration radar (GPR)](#ct-reconstruction-with-multi-static-ground-penetration-radar--gpr-)
+    + [RF cls and anomaly detection with CNN](#rf-cls-and-anomaly-detection-with-cnn)
+    + [Rain detection with sea radar](#rain-detection-with-sea-radar)
+    + [L-corner NLOS (not in direct line of sight) target detection](#l-corner-nlos--not-in-direct-line-of-sight--target-detection)
+    + [sparse array selection with CNN](#sparse-array-selection-with-cnn)
+    + [Applying DQN for target tracking](#applying-dqn-for-target-tracking)
+    + [GO-CFAR trained CNN target detector](#go-cfar-trained-cnn-target-detector)
+    + [Deep Radar Detector [**]](#deep-radar-detector-----)
+    + [Design Estimation of DoA (degree of arrival) for mutually incoherent arrays](#design-estimation-of-doa--degree-of-arrival--for-mutually-incoherent-arrays)
+    + [Mitigation of Vehicle Vibration Effect on Automotive Radar](#mitigation-of-vehicle-vibration-effect-on-automotive-radar)
+    + [Two-Dimensional Beamforming Automotive Radar with Orthogonal Linear Arrays](#two-dimensional-beamforming-automotive-radar-with-orthogonal-linear-arrays)
+  * [Thursday](#thursday)
+    + [DL object classification on automotive radar spectra](#dl-object-classification-on-automotive-radar-spectra)
+    + [Personal identification and BMI via Micro-Doppler analysis with DL](#personal-identification-and-bmi-via-micro-doppler-analysis-with-dl)
+    + [Cross-frequency classification of indoor activities](#cross-frequency-classification-of-indoor-activities)
+    + [multiple patients behavior detection using mmWave](#multiple-patients-behavior-detection-using-mmwave)
+    + [Indoor gait asymmetry detection with indoor radar](#indoor-gait-asymmetry-detection-with-indoor-radar)
+    + [See multiple heartbeats through the wall](#see-multiple-heartbeats-through-the-wall)
+    + [High resolution automotive radar to estimate elevation via interferometry [*]](#high-resolution-automotive-radar-to-estimate-elevation-via-interferometry----)
+    + [Passive Activity Classification Using Just WiFi Probe Response Signals](#passive-activity-classification-using-just-wifi-probe-response-signals)
+    + [Gesture recognition using Doppler, time and range based features](#gesture-recognition-using-doppler--time-and-range-based-features)
+    + [GAN-based synthetic radar micro-doppler augmentation for improved human activity recognition](#gan-based-synthetic-radar-micro-doppler-augmentation-for-improved-human-activity-recognition)
+  * [Trivias learned at the RadarCon](#trivias-learned-at-the-radarcon)
+      - [People](#people)
+      - [Hardware](#hardware)
+      - [Radars](#radars)
+
 
 ## Monday
 
@@ -28,7 +72,7 @@ Disclaimer: If you are the author of any of the images and would not like to sha
 - DARPA
 	- model based approach to generate radar imagery (Q: what modality captured those arial imagery? SAR)
 
-### Intro to ML
+#### Intro to ML
 - [History of DL](https://www.import.io/post/history-of-deep-learning/)
 - SAR ATR (SAR has many parameters that can affect radar imagery)
 - Object detection are usually provided with a reference image (background) to subtract
@@ -39,14 +83,14 @@ Disclaimer: If you are the author of any of the images and would not like to sha
 	- ~250 images per taget class, per angle (15 for training, 17 for testing. Q: how different is the dataset from diff angles?)
 - TrueNorth neuromorphic processor (train model, then export to TN file to deploy on TN processor). EEDN (energy efficient) 
 
-### Multiple object recognition
+#### Multiple object recognition
 - Input: full frame multi-object SAR image with clutter
 - Detection (CFAR-based detection)
 	- preprocess input image with wavelet transform (optional)
 	- Run detector to crop out "chip" of 128x128 pixels
 - Classification
 
-### RF data
+#### RF data
 - RF data are hard and expensive to collect 
 	- radar senspors
 	- detailed DOE (collection scenarios
@@ -58,7 +102,7 @@ Disclaimer: If you are the author of any of the images and would not like to sha
 - [Slides](./assets/T-15_Radar_Detection_Performance_Analysis_and_CFAR.pdf) 
 - Presenter: Dr. Augusto Aubry (ra)
 
-### Basic theory of radar detection
+#### Basic theory of radar detection
 - Slow-fast data matrix
 - Under the assumption that the dwell time is short so that the distance to the radar (and thus round trip delay) is constant. 
 - Coherent if A and $\phi$ are the same for all pulses.
@@ -67,7 +111,7 @@ Disclaimer: If you are the author of any of the images and would not like to sha
 - NP detector (Neyman Pearson) detector is the best, but it is not practically implementable. In implementation, we resort to GLRT.
 
 
-### CFAR
+#### CFAR
 - This is basically an adaptive thresholding algorithm to keep a constant probability of false alarm independent of the interference pdf parameters. 
 - The CFAR filter includes leading/lagging reference windows, guard cells, and a cell under test (CUT). Basically different CFAR algorithms entail manually crafting the filter.  (This needs a lot of fine-tuning of the filters. Maybe CNN can be of help?)
 - The CFAR window may be implemented across: range, Doppler, angle, time, and some combination of the above. The CFAR window does not need to have the same size in different dimension.
@@ -77,7 +121,7 @@ Disclaimer: If you are the author of any of the images and would not like to sha
 
 ## Tuesday
 
-### Planetary Session
+### Radar Network
 - David @ UM Amherst, formerly Raytheon
 - Dense radar network
 - Low altitude gap in existing radar network (due to curvature of the Earth)
@@ -127,7 +171,6 @@ Disclaimer: If you are the author of any of the images and would not like to sha
 ![](assets/IMG_1272.jpg.warped.jpg)
 
 
-## Automotive Radar Session
 ### Accurate Target Localization with automotive radars
 - Faruk Uysal From TU Delft
 - Low angular estimation
@@ -173,9 +216,6 @@ Disclaimer: If you are the author of any of the images and would not like to sha
 	- PCA to extract the principal axis
 	- MLE
 
-
-
-## Machine Leanring in Radar
 ### RFI detection 
 - classification of images
 - imbalanced dataset
@@ -219,7 +259,6 @@ Disclaimer: If you are the author of any of the images and would not like to sha
 - EM wave propagation model for L band, and model-based target loalization
 ![](assets/IMG_1282.jpg.warped.jpg)
 
-## Cognitive Radar
 ### sparse array selection with CNN
 - Uses CNN to approximate complex function for quick inference
 - Cognitive radar: adjust transceiver and receiver according to context
@@ -244,7 +283,7 @@ Disclaimer: If you are the author of any of the images and would not like to sha
 - Use GO-CFAR as a training mentor (generate label). 
 - Why not using GT? --> CFAR has the constant false alarm property. Using label may be more challenging. 
 
-## Automotive Radar
+<!--## Automotive Radar-->
 ### Deep Radar Detector [**]
 - Daniel Brodeski @ GM Isreal
 - Imaging radar --> target goal: lidar
@@ -404,37 +443,34 @@ Disclaimer: If you are the author of any of the images and would not like to sha
 
 
 ## Trivias learned at the RadarCon
-
-#### People
 <!--
+#### People
 - John Pierro @ Telephonics
 - Wolfgang Doerr @ Aptiv
 - Euan Ward @ U of Edinburgh
 - Thomas Feuillen @ UCL
-- 
+- Oklahoma Univ has a SOTA radar department mainly because of weather monitoring
+- Waymo, Aptiv, Raytheon have great radar staff
 -->
 
-#### Stuff
+#### Hardware
 - TI radar
 	- provides 3 levels of abstraction: raw data, point cloud and list of tracked objects. Need datacard to extract the raw data
 	- at least 5 dim: elevation, dopler, depth, azimuth, SNR
 - RadarLog
 	- provides raw data, 2D imaging radar
+	- RadarLog can work in MIMO mode as well
+- ASTYX provides dense point cloud (with adjustable threshold)
 
 #### Radars
 - In radar, "detection" means applying the threshold to the ADC. In computer vision, "detection" means drawing bounding boxes around an object.
+- **The radar point cloud are usually done after detection and tracking. This is quite different from lidar.**
 - Radar imaging
 	- Real and imaginary of radar signal: [I and Q](http://www.radartutorial.eu/10.processing/sp06.en.html)
-	- The direction of arrival (DOA) of all detections in the RD- map are obtained via beamforming (BF). Beamforming requires sensor array calibration, where array responses to targets at various known positions are collected to construct a sensor array calibration matrix.
-	- Notice that the quality of the radar point cloud is mainly determined by the detector and beamforming.
-	- Notice that multiple user-defined parameters, such as threshold, margin, sizes and shapes of the reference and guard windows determine the performance of the conventional radar signal processing. Automotive radar is required to operate in a variety of significantly different scenes, and therefore, selection of a single optimal set of these parameters is extremely challenging and frequently an impossible task. 
-- If radars do not have height information, then we can generate birds eye view for 2D bbox.
-- Oklahoma Univ has great radar center, because of weather monitoring
-- **The radar point cloud are usually done after detection and tracking. This is quite different from lidar.**
-- Radar can work in MIMO mode as well
-- ASTYX provides dense point cloud (with adjustable threshold)
-- Use of Range Doppler map
-
+- The direction of arrival (DOA) of all detections in the RD- map are obtained via beamforming (BF). Beamforming requires sensor array calibration, where array responses to targets at various known positions are collected to construct a sensor array calibration matrix.
+- The quality of the radar point cloud is mainly determined by the detector and beamforming.
+- Multiple user-defined parameters, such as threshold, margin, sizes and shapes of the reference and guard windows determine the performance of the conventional radar signal processing. Automotive radar is required to operate in a variety of significantly different scenes, and therefore, selection of a single optimal set of these parameters is extremely challenging and frequently an impossible task. 
+- If radars do not have height information, can we simply discard it and generate birds eye view for 2D bbox (3D localization in CV terms)?
 
 
 
