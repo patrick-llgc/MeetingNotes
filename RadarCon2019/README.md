@@ -3,7 +3,7 @@ Notes taken at IEEE Radar Conference 2019 at Boston, with a focus of Machine Lea
 
 Compiled by Patrick Liu. 
 
-Disclaimer: If you are the author of any of the images and would not like to share the information, please contact me at `patrickl_at_xsense_dot_ai`.
+Disclaimer: If you are the author of any of the images and would not like to share the information, please contact me at `llgc_at_umich_dot_edu`.
 
   * [Monday](#monday)
     + [Tutorial Session I: Machine Learning Technique for Radar ATR (automatic target recognition)](#tutorial-session-i--machine-learning-technique-for-radar-atr--automatic-target-recognition-)
