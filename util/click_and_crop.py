@@ -51,6 +51,7 @@ class ScreenPointGetter(object):
       # if the 'r' key is pressed, reset the cropping region
       if key == ord("r"):
         self.image = clone.copy()
+        self.refPt = []
      
       # if the 'c' key is pressed, break from the loop
       elif key == ord("c") or key == ord("q") or len(self.refPt) > 4:

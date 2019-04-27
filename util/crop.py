@@ -85,7 +85,7 @@ def tell_dark(image_array):
   return is_dark
 
 
-def manual_process(image):
+def manual_process(image, input_path):
   # load the image and compute the ratio of the old height
   # to the new height, clone it, and resize it
   print('Manually getting points...')
@@ -96,6 +96,7 @@ def manual_process(image):
   ratio = 1000.0 / warped.shape[1]
   warped = cv2.resize(warped, (0, 0), fx=ratio, fy=ratio)
   output_path = input_path + '.warped.jpg'
+  print('saving to {}'.format(output_path))
   cv2.imwrite(output_path, warped)
 
 
@@ -107,7 +108,7 @@ def process(input_path, debug=False, mode='auto'):
   orig = image.copy()
 
   if mode == 'manual':
-    manual_process(image)
+    manual_process(image, input_path)
     return
   else:
     ratio = 1000.0 / image.shape[0]
@@ -122,7 +123,7 @@ def process(input_path, debug=False, mode='auto'):
     is_dark = False
   else:
     raise ValueError
-  print('dark' if is_dark else 'bright')
+  print('auto level: {}'.format('dark' if is_dark else 'bright'))
   
   
   # convert the image to grayscale, blur it, and find edges
@@ -231,6 +232,7 @@ def process(input_path, debug=False, mode='auto'):
   # cv2.waitKey(0)
 
   output_path = input_path + '.warped.jpg'
+  print('saving to {}'.format(output_path))
   cv2.imwrite(output_path, warped)
 
 
@@ -239,7 +241,11 @@ def batch_process(image_path_list, **kwargs):
     try:
       process(image_path, **kwargs)
     except:
-      print(image_path)  
+      print('Skipping {}'.format(image_path)) 
+
+
+def get_key(input_path):
+  return input_path.split('.')[0]
 
 
 if __name__ == '__main__':
@@ -260,6 +266,13 @@ if __name__ == '__main__':
     process(input_path, debug=args["debug"], mode=args["mode"]) 
   else:
     input_path_list = glob.glob(os.path.join(args['directory'], '*'))
-    input_path_list = [input_path for input_path in input_path_list if 'warped' not in input_path]
+    warped_input_path_dict = {get_key(input_path):input_path 
+        for input_path in input_path_list if 'warped' in input_path}
+    input_path_dict = {get_key(input_path):input_path 
+        for input_path in input_path_list if 'warped' not in input_path}
+    input_path_list = [input_path_dict[key] for key in input_path_dict 
+        if key not in warped_input_path_dict]
+    print('Batch manually finetune the following files: \n{}\n'.format(
+        '\n'.join(input_path_list)))
     batch_process(input_path_list, debug=args["debug"], mode=args["mode"])
   

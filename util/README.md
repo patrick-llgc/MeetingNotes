@@ -2,7 +2,19 @@
 The script `crop.py` converts photos of slides taken at conferences into upright images.
 
 
-## Usage
+## Recommended Usage
+1. Process whole jpg or png folder in batch
+```
+python crop.py -d /path/to/your/image/directory
+```
+2. Manually delete unsatisfactory crops
+3. Manually adjust the crops in batch
+```
+python crop.py -d /path/to/your/image/directory --mode manual
+```
+
+
+## General Usage
 Run the following command
 
 ```
