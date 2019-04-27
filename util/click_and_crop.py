@@ -6,7 +6,9 @@ import numpy as np
 class ScreenPointGetter(object):
   def __init__(self, image):
     self.refPt = []
-    self.image = image
+    self.orig = image
+    self.ratio = 500.0 / image.shape[0]
+    self.image = cv2.resize(image, (0, 0), fx=self.ratio, fy=self.ratio)
 
   def click_and_crop(self, event, x, y, flags, param):
     # grab references to the global variables
@@ -18,6 +20,7 @@ class ScreenPointGetter(object):
     # performed
     if event == cv2.EVENT_LBUTTONDOWN:
       self.refPt.append((x, y))
+      print('Add point!')
    
     # check to see if the left mouse button was released
     elif event == cv2.EVENT_LBUTTONUP:
@@ -55,7 +58,7 @@ class ScreenPointGetter(object):
      
     # close all open windows
     cv2.destroyAllWindows()
-    contour_pts = np.array([[[x, y]] for x, y in self.refPt[:4]])
+    contour_pts = np.array([[[x, y]] for x, y in self.refPt[:4]]) / self.ratio
     return contour_pts
 
 if __name__ == '__main__':

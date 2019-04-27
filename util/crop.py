@@ -88,9 +88,13 @@ def tell_dark(image_array):
 def manual_process(image):
   # load the image and compute the ratio of the old height
   # to the new height, clone it, and resize it
-  screenCnt = ScreenPointGetter(image).get_points()
+  print('Manually getting points...')
+  screenCnt = ScreenPointGetter(image.copy()).get_points()
   # print('manual specified refPts ', screenCnt)
   warped = four_point_transform(image, screenCnt.reshape(4, 2))
+  # rescale width to 1000 pixels
+  ratio = 1000.0 / warped.shape[1]
+  warped = cv2.resize(warped, (0, 0), fx=ratio, fy=ratio)
   output_path = input_path + '.warped.jpg'
   cv2.imwrite(output_path, warped)
 
@@ -99,15 +103,18 @@ def process(input_path, debug=False, mode='auto'):
   # load the image and compute the ratio of the old height
   # to the new height, clone it, and resize it
   image = cv2.imread(input_path)
-  ratio = 1000.0 / image.shape[0]
+  
   orig = image.copy()
-  image = cv2.resize(image, (0, 0), fx=ratio, fy=ratio)
 
   if mode == 'manual':
     manual_process(image)
     return
+  else:
+    ratio = 1000.0 / image.shape[0]
+    image = cv2.resize(image, (0, 0), fx=ratio, fy=ratio)
+
   # tell is_dark automatically
-  elif mode == 'auto':
+  if mode == 'auto':
     is_dark = tell_dark(image)
   elif mode == 'dark':
     is_dark = True
