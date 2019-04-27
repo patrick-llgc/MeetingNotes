@@ -1,8 +1,10 @@
 # Radar Conference 2019
+Disclaimer: If you are the author of any of the images and would not like to share the information, please contact me at patrickl_at_xsense_dot_ai.
+
 ## Monday
 
 ### Tutorial Session I: Machine Learning Technique for Radar ATR (automatic target recognition)
-- [Slides](assets/T-03 Machine Learning Techniques for Radar ATR.pdf)
+- [Slides](assets/T-03_Machine_Learning_Techniques_for_Radar_ATR.pdf)
 - Speaker: Uttam Majumder, Air Force Research Laboratory (ra)
 	- Identify objects in RF imagery, SAR image (classification, ATR)
 	- Neuromorphic processor implementation
@@ -53,8 +55,7 @@
 
 
 ### Tutorial Session II: Basic theory of radar detection, and CFAR techniques
-
-- [Slides](./assets/T-15 Radar Detection, Performance Analysis, and CFAR.pdf) 
+- [Slides](./assets/T-15_Radar_Detection_Performance_Analysis_and_CFAR.pdf) 
 - Presenter: Dr. Augusto Aubry (ra)
 
 ### Basic theory of radar detection
@@ -77,9 +78,10 @@
 ## Tuesday
 
 ### Planetary Session
-David @ UM Amherst, @ Raytheon
+- David @ UM Amherst, formerly Raytheon
 - Dense radar network
 - Low altitude gap in existing radar network (due to curvature of the Earth)
+![](assets/IMG_1267.jpg.warped.jpg)
 - Only 30% of the first 1km is covered in aviation
 - Raytheon product: Skyler x-band (9Ghz) 2D electronic scan
 - Spectrum pressure (X-band under-utilized)
@@ -118,9 +120,11 @@ David @ UM Amherst, @ Raytheon
 - Jian Wang @ Google, system lead for Project Soli, formerly at Raytheon
 - Automotive radars: a few watts, ARS4-A, Bosch LRR4
 - Fast time, slow time, channel
+- finger gestures have easy and intuitive controls, with distinctive advantages compared to other sensors
+![](assets/IMG_1269.jpg.warped.jpg)
+![](assets/IMG_1273.jpg.warped.jpg)
 - Hardware Abstraction Layer (HAL): need to separate hardware specific and hardware agnostic stages
-- finger gestures have easy and intuitive controls
-
+![](assets/IMG_1272.jpg.warped.jpg)
 
 
 ## Automotive Radar Session
@@ -134,6 +138,8 @@ David @ UM Amherst, @ Raytheon
 	- super resolution (MUSIC, or iterative approach, etc), drawback: calculation
 - For single target use MIMO monopulse approach to improve angular resolution
 - Demo for cyclist detection
+![](assets/IMG_1276.jpg.warped.jpg)
+![](assets/IMG_1277.jpg.warped.jpg)
 
 ### Comparison of Automotive radar interference mitigation algorithms
 - Mate Toth @ TU Graz, infineon
@@ -142,18 +148,20 @@ David @ UM Amherst, @ Raytheon
 - SINR (signal to inference-plus-noise ratio)
 
 
-
 ### Mount angle calibration
 - @ TI
 - sensor calibration: x, y and $\phi$ (only in the azimuth direction), as Z is always pointing up
+![](assets/IMG_1278.jpg.warped.jpg)
 - Calibration is especially important when
 	- multiple radars are installed
 	- Used with other sensors (cameras, lidars)
+![](assets/IMG_1279.jpg.warped.jpg)
 - Manual calibration (with 3 objects with known reletive position). drawback: need to recalibrate often, tedious
 - automatic calibration
 	- Occupancy grid map (transitional techniques)
 	- Find angle that minimizes the smearing of a point object in an occupancy map
 - Elevation calibration is not accounted for currently
+
 
 ### Cognitive interference mitigation
 - Cognitively allocate chirps to minimize the interference.
@@ -167,7 +175,6 @@ David @ UM Amherst, @ Raytheon
 
 
 
-
 ## Machine Leanring in Radar
 ### RFI detection 
 - classification of images
@@ -175,7 +182,7 @@ David @ UM Amherst, @ Raytheon
 - future: compare classifier performance against human baseline, expert performance (have multiple experts mark data)
 
 ### Reconstruction of SAR from sensor data
-- Ali Gurbuz @ Mississippi state
+- Ali Gurbuz @ Mississippi State
 - sensor domain and image domain
 - Complex sensor data --fc layer--> proxy images --CNN--> reconstructed image
 - Used CIFAR-10 to pre-train data, then apply on MSTAR dataset
@@ -194,9 +201,9 @@ David @ UM Amherst, @ Raytheon
 - Tian Xia @ Univ. of Vermont
 - Ground coupled GPR has better resolution than air launched GPR, but moves slowly (manual vs vehicle mounted)
 - Multistatic (multi transimtter tx and multi receiver rx): spatial diversity, facilitate wide sensing coverage and fast 3D formation
+![](assets/IMG_1281.jpg.warped.jpg)
 
 ### RF cls and anomaly detection with CNN
-
 - Marvin Conn @ US Army Research Lab
 - RF spectrum is a limited and critical resource for sensing and communication
 - waveform classification and waveform anomaly detection
@@ -210,7 +217,7 @@ David @ UM Amherst, @ Raytheon
 - L-band UWB (Utra Wide-Band) radar (600 MHz bandwidth, 1~2 GHz)
 - CA-CFAR detection algorithm
 - EM wave propagation model for L band, and model-based target loalization
-
+![](assets/IMG_1282.jpg.warped.jpg)
 
 ## Cognitive Radar
 ### sparse array selection with CNN
@@ -238,14 +245,20 @@ David @ UM Amherst, @ Raytheon
 - Why not using GT? --> CFAR has the constant false alarm property. Using label may be more challenging. 
 
 ## Automotive Radar
-### Deep Radar Detector
+### Deep Radar Detector [**]
 - Daniel Brodeski @ GM Isreal
 - Imaging radar --> target goal: lidar
 - Radar point cloud differs quite a lot even for the same object 
+![](assets/IMG_1283.jpg.warped.jpg)
 - Statistical nature of radar sensor + user-defined parameters of conventional radar processing techniques
 - Conventional pipeline: ADC --> 2D fft --> detection --> beamforming --> cls/object detection
+![](assets/IMG_1284.jpg.warped.jpg)
+![](assets/IMG_1285.jpg.warped.jpg)
+![](assets/IMG_1286.jpg.warped.jpg)
 - Goal: use 4D (range, doppler, azimuth and elevation) data directly
+![](assets/IMG_1287.jpg.warped.jpg)
 - Data (labeled data) --> Data augmentation --> Network --> Training
+![](assets/IMG_1288.jpg.warped.jpg)
 - Dimension: ant (antenas)
 - Use calibration data as training data, but lack diversity, with zero Doppler
 - Multiply by a phase shift in range-doppler image (?). This correspondns to a spatial displacement in image domain.
@@ -254,10 +267,21 @@ David @ UM Amherst, @ Raytheon
 - RD accuracy ~ CA CFAR, but azimuth and elevation is much better than classical BF
 - DL is much more robust to noise
 - able to perform detection in 50 FPS
-
+![](assets/IMG_1289.jpg.warped.jpg)
+![](assets/IMG_1290.jpg.warped.jpg)
+![](assets/IMG_1291.jpg.warped.jpg)
+![](assets/IMG_1292.jpg.warped.jpg)
+![](assets/IMG_1293.jpg.warped.jpg)
+![](assets/IMG_1294.jpg.warped.jpg)
+![](assets/IMG_1295.jpg.warped.jpg)
+![](assets/IMG_1296.jpg.warped.jpg)
+![](assets/IMG_1297.jpg.warped.jpg)
+![](assets/IMG_1298.jpg.warped.jpg)
+![](assets/IMG_1300.jpg.warped.jpg)
 
 ### Design Estimation of DoA (degree of arrival) for mutually incoherent arrays
-- David @ Fraunhofer
+- David Nunez @ Fraunhofer, formerly @ UCSD
+![](assets/IMG_1301.jpg.warped.jpg)
 
 ### Mitigation of Vehicle Vibration Effect on Automotive Radar
 - Oren Longman @ GM Isreal
@@ -265,25 +289,30 @@ David @ UM Amherst, @ Raytheon
 - Assume vibration in the longitudinal axis
 - Traditional: ADC, Range FFT, Doppler FFT, Detector, Digital Beamforming
 - proposed method: swap digital BF and Doppler FFT
+![](assets/IMG_1304.jpg.warped.jpg)
+![](assets/IMG_1305.jpg.warped.jpg)
 - Effect of vibration is more pronounced when moving with higher frequency. For 77 GHz it is relatively easy to counter the vibration effect, no so for 300 GHz.
 - Main Lobe and Side Lobe in the power-Hz map
 - Assumes constant velocity
 
 
 ### Two-Dimensional Beamforming Automotive Radar with Orthogonal Linear Arrays
+- Shaogang Wang @ Aurora
 - Radar in Reality: high range-Doppler resolution, but low angular resolution
 - Hundreds of channels needed for a full planar array
 - Achieving high resolution 4D data with affordable hardware
 - Mount antennas perpendicularly.
+![](assets/IMG_1306.jpg.warped.jpg)
 - Resolve in range-doppler image (RDI) domain. Beam matching --> image matching
-
+![](assets/IMG_1307.jpg.warped.jpg)
 
 ## Thursday
 ### DL object classification on automotive radar spectra
 - Kanil Patel @ Bosch
 - robust to weather and lighting conditions
 - DL can be used to replace part of the image processing chain
-- Detection --> point cloud --> semantic segmentation
+- Previous arts: Detection --> point cloud --> semantic segmentation
+![](assets/IMG_1311.jpg.warped.jpg)
 - DL on FFT spectrum for human fall detection, human robot cls, and human pose estimation
 - Datasets: 7 objects
 - 77 GHz carrier frequency, azimuth resolution 6 degrees 
@@ -291,13 +320,20 @@ David @ UM Amherst, @ Raytheon
 	- Polar representation of spectra and side lobes of targets
 	- Solution: Give CNN the cues to learn the distortions: distance to center map
 - Radar spectra varies from frame to frame: use temporal filtering (majority voting) after cls on each frame
+![](assets/IMG_1313.jpg.warped.jpg)
+![](assets/IMG_1314.jpg.warped.jpg)
+![](assets/IMG_1315.jpg.warped.jpg)
+![](assets/IMG_1316.jpg.warped.jpg)
+
 
 
 ### Personal identification and BMI via Micro-Doppler analysis with DL
+- Fady Aziz @ Fraunhofer
 - Application: surveillance, driver assistance/monitoring in autonomous driving
 - Put objects on treadmill. They have the same speed
 - Unsupervised learning through convolutional AE, then use t-SNE for dimension reduction
 - training/test split done on the same set of subjects --> Confirmed with author that it is if for re-identification this could be understood.
+![](assets/IMG_1317.jpg.warped.jpg)
 
 ### Cross-frequency classification of indoor activities
 - radar monitoring: contactless and no-invasive monitoring (do not need to be worn or to interact with no plain images or videos recorded)
@@ -309,7 +345,8 @@ David @ UM Amherst, @ Raytheon
 - Each subject, 2 to 20 points with mmWave radar
 - Doppler-bin vs Time spectrum image.
 - One Doppler-time image for each cluster
-
+![](assets/IMG_1318.jpg.warped.jpg)
+![](assets/IMG_1319.jpg.warped.jpg)
 
 ### Indoor gait asymmetry detection with indoor radar
 - Medical gait asymmetry analysis
@@ -323,10 +360,16 @@ David @ UM Amherst, @ Raytheon
 
 ### High resolution automotive radar to estimate elevation via interferometry [*]
 - Stefan Brisken @ ASTYX 
+![](assets/IMG_1320.jpg.warped.jpg)
+![](assets/IMG_1321.jpg.warped.jpg)
 - Put two Tx antennas with vertical offset. Need to have horizontal offset as well due to the size of the antennas
+![](assets/IMG_1322.jpg.warped.jpg)
 - Use interferometry to find the elevation.
+![](assets/IMG_1323.jpg.warped.jpg)
 - The elevation information is great feature for DL algorithms
 - Design constraints: cost, computational load, power consumption, # channels, packaging constraints
+- Very impressive 3D point cloud
+![](assets/IMG_1324.jpg.warped.jpg)
 
 ### Passive Activity Classification Using Just WiFi Probe Response Signals
 - Use wifi signal for monitoring/surveillance.
@@ -338,18 +381,26 @@ David @ UM Amherst, @ Raytheon
 
 	
 ### Gesture recognition using Doppler, time and range based features
+- UCL, collaboration with Project Soli
+- Micro-Doppler background info
+![](assets/IMG_1325.jpg.warped.jpg)
 - Evaluate if keeping the dimension of range will help with cls
+![](assets/IMG_1326.jpg.warped.jpg)
 - Previously, only micro-Doppler vs time are considered.
 - Three different Doppler vs time spectrograms with diff ranges.
 - Manually crafted features with classical ML.
+![](assets/IMG_1327.jpg.warped.jpg)
+![](assets/IMG_1328.jpg.warped.jpg)
 - Has not addressed the question of detecting the start and end of the gesture. Cannot deploy without GT.
 
 
 ### GAN-based synthetic radar micro-doppler augmentation for improved human activity recognition
+- Sevgi Gurbuz @ Univ of Alabama
 - Anchortek radar
 - LOS (line of sight); TTW (through the wall)
 - eCLEAN, thresholding and convert to grayscale
-
+![](assets/IMG_1329.jpg.warped.jpg)
+![](assets/IMG_1330.jpg.warped.jpg)
 
 
 ## Trivias learned at the RadarCon
