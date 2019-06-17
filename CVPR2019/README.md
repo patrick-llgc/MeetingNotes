@@ -32,36 +32,68 @@
 ### Workshop on Autonomous Driving -- Beyond Single-Frame Perception
 - Lyft: Kumar hockey stick growth
 - Incorporate knowledge into driving (static/dynamic objects)
+![](assets/IMG_1534.jpg.warped.jpg)
+![](assets/IMG_1535.jpg.warped.jpg)
 - Geometric Map (camera + lidar) vs Visual Geometric Map (SfM)
 - Two 9's accuracy with CV, but 4s's with human curation
 
+
 ### Workshop: CARLA
+- Drago@Waymo
 - What is the input representation for powering realistic agents?
 	- realistic perception (CARLA)
-	- box world (ChauffeurNet_
+	- box world (ChauffeurNet)
 - Is pure imitation sufficient? 
 	- DAGGER: not good in practice
 	- ChauffeurNet solution: synthesize perturbation, 
+![](assets/IMG_1538.jpg.warped.jpg)
 - What is the metric for success?
 - How to model non-average agent
 - **Note**: RL may be good for ego car, but imitation is needed for agent modeling
+- Google is going to open source a huge dataset in July
+![](assets/IMG_1536.jpg.warped.jpg)
 
 #### Andrej Karpathy
+- Autonomous driving stack and AI
+![](assets/IMG_1555.jpg.warped.jpg)
+- Data collection pipeline
+![](assets/IMG_1556.jpg.warped.jpg)
+![](assets/IMG_1559.jpg.warped.jpg)
+![](assets/IMG_1560.jpg.warped.jpg)
 - 30-40 different tasks. each task has additonal sub-tasks.
 - Architecture considerations
 	- every single task have network: expenseive in inference, no feature sharing, potential overfitting, but decoupled functinality
 	- Single backbone with multiple head: cheaper in test, but fight for capacity, sometimes. fully coupled functionality.
 	- Partially shared backbone? backbone used during training but not in testing
 	- Temporal component: unrolled hybrid architecture
+![](assets/IMG_1561.jpg.warped.jpg)
+![](assets/IMG_1562.jpg.warped.jpg)
+![](assets/IMG_1563.jpg.warped.jpg)
+![](assets/IMG_1564.jpg.warped.jpg)
+![](assets/IMG_1565.jpg.warped.jpg)
+![](assets/IMG_1566.jpg.warped.jpg)
+
 - Loss considerations
 	- more than 200 losses in total!
 	- How to do weighting factor $\lambda$ saerch?
 	- Tasks have different scale, importance, difficulty, have more data, more noise, etc...
 	- Single task: early stopping. But how about multiple loss?
+![](assets/IMG_1567.jpg.warped.jpg)
+![](assets/IMG_1568.jpg.warped.jpg)
+![](assets/IMG_1569.jpg.warped.jpg)
 - Team assignment
 	- How can multiple task owners iterate on one neural network?
 	- big problem: reproducibility: track workflow
+![](assets/IMG_1572.jpg.warped.jpg)
+![](assets/IMG_1573.jpg.warped.jpg)
+![](assets/IMG_1575.jpg.warped.jpg)
+![](assets/IMG_1576.jpg.warped.jpg)
+![](assets/IMG_1578.jpg.warped.jpg)
 - Make each increment buildable, use distributed training for fast testing
+![](assets/IMG_1579.jpg.warped.jpg)
+![](assets/IMG_1580.jpg.warped.jpg)
+![](assets/IMG_1582.jpg.warped.jpg)
+![](assets/IMG_1583.jpg.warped.jpg)
 - **Note**: You can only develop as fast as you can evaluate. The team can only move as fast as your evaluation allows. So it is critical to have 
 - Jitter over time indicate uncertainty implicitly. Use uncertainty, but not exactly Bayesian networks, but cheap approximation to that.
 - Oversample "boat on trailer" 
@@ -76,11 +108,18 @@
 - slowFast network
 
 ### Workshop: Vision for All Seasons: Bad Weather and Nighttime
-#### How to evaluate 
-- DENSE: how the performance of each sendor degrades with increasingly adverse weather
+#### How to evaluate each sensor degrades with increasingly adverse weather 
+- DENSE project 
 - From Mario Bijelic Daimler AG
+![](assets/IMG_1584.jpg.warped.jpg)
+![](assets/IMG_1585.jpg.warped.jpg)
+![](assets/IMG_1586.jpg.warped.jpg)
 - gated imager: only from a certain depth
 - snowdust disturbs lidar a lot. Can simulate fog in clear data.
+![](assets/IMG_1587.jpg.warped.jpg)
+![](assets/IMG_1588.jpg.warped.jpg)
+![](assets/IMG_1589.jpg.warped.jpg)
+![](assets/IMG_1590.jpg.warped.jpg)
 
 #### Gated imaging in adverse weather
 - only collect relfected signal in a certain distance range
@@ -90,18 +129,39 @@
 - single illumination and multiple collection?
 - distance bins? usually 3, but overlapping, how thick?
 - Estimate depth from multiple slides
+![](assets/IMG_1591.jpg.warped.jpg)
+![](assets/IMG_1592.jpg.warped.jpg)
+![](assets/IMG_1593.jpg.warped.jpg)
 
-#### fastDraw: Predict lane lines
+#### [fastDraw: Predict lane lines](FastDraw: Addressing the Long Tail of Lane Detection by Adapting a Sequential Prediction Network)
+- conventional methods
+![](assets/IMG_1593.jpg.warped.jpg)
+![](assets/IMG_1596.jpg.warped.jpg)
 - Assume RNN to be Markov
+![](assets/IMG_1597.jpg.warped.jpg)
+![](assets/IMG_1599.jpg.warped.jpg)
+![](assets/IMG_1600.jpg.warped.jpg)
 - Style transfer to translate image into other weather conditions, Convert dashed to continuous lines, etc
 - With augmentation, both in-domain and out-of-domain 
+![](assets/IMG_1601.jpg.warped.jpg)
 - [Tusimple data challenge](https://github.com/TuSimple/tusimple-benchmark/blob/master/doc/lane_detection/readme.md) for lane detection
 
 #### [Heavy rain image restoration](https://arxiv.org/pdf/1904.05050.pdf)
 - Rain streak removal algorithm: but only good camera can capture rain streaks
+![](assets/IMG_1602.jpg.warped.jpg)
+![](assets/IMG_1603.jpg.warped.jpg)
+![](assets/IMG_1604.jpg.warped.jpg)
+![](assets/IMG_1605.jpg.warped.jpg)
 - Accumulated rain streaks
 - Fog model formula: what is N?
 - Run google vision API to classify
+
+#### Learn a common representation
+![](assets/IMG_1606.jpg.warped.jpg)
+![](assets/IMG_1607.jpg.warped.jpg)
+![](assets/IMG_1608.jpg.warped.jpg)
+![](assets/IMG_1609.jpg.warped.jpg)
+![](assets/IMG_1610.jpg.warped.jpg)
 
 #### Illuminition in bad weather
 - [Srinivasa Narasimhan](http://www.cs.cmu.edu/~srinivas/) from CMU
@@ -112,27 +172,47 @@
 - radar + camera fusion in his phd thesis
 - How to illuminate in poor visibility?
 	- Why we don't use high beam in fog/rain 
+	![](assets/IMG_1611.jpg.warped.jpg)
+	![](assets/IMG_1612.jpg.warped.jpg)
 	- try to minimize diffuse volume
 	- Scan with narrow beam very fast
 - Combine velodyne puck with kinect depth: light sheet depth imaging
 - Epilolar geometry: dense depth measurement at 50 m
 - light curtains: obstacle avoidance without computation (see through fog, smoke, etc). (more common in Confocal imaging in microscopy)
+![](assets/IMG_1613.jpg.warped.jpg)
 - programmable headlight: 1M light points x 1000 fps. only illuminate objects of interest (beam intensity without glare)
+![](assets/IMG_1615.jpg.warped.jpg)
 - better visibility through snow/rain (smartly avoiding snow flakes/rain drops)
-- Q: what about other spectrum band?
+![](assets/IMG_1617.jpg.warped.jpg)
 
 #### 3D detection across weathers, conditions, and locations: algorithms and benchmarks
 - Daniel Cremers @ MTU
 - SLAM: BA (bundle adjustment)
-- But Kupper is misleding:
+![](assets/IMG_1619.jpg.warped.jpg)
+- But Kruppa is misleding:
 	- Why only two images? why only points?
+![](assets/IMG_1621.jpg.warped.jpg)
 - min reproj error of key points only vs photometric error: all pixels contribute to the photometric error. Color consistency is the key
 - DSO is much better than ORB-SLAM
 - SLAM: GPS is not robust: multi-path in urban canyon, NA in tunnel
-- Q: How to incorporate IMU or GPS signal? ICRA 2018: visual-inertial DSO?
+- Q: How to incorporate IMU or GPS signal? ICRA 2018: visual-inertial DSO. Integrate these measurement in the loss function. But the main challenge is the synchronization of measurement.
+![](assets/IMG_1623.jpg.warped.jpg)
+![](assets/IMG_1624.jpg.warped.jpg)
 - Deep network end-to-end, but how to incorporate the existing knowledge?
 - Yang et al ECCV 2018, use monocular, but estimates stereo disparity map
 	- Depth from a single image with conventional method usually lead to inaccurate scale, but DNN is good at it
 - Scene understanding: Build a 
 - Relocalization: you have a map, localize yourself inside the map.
 	- Gauss-newton loss, Von Stumberg, arxiv 2019
+
+#### NuTonomy Talk on Nusences and 3D object detection
+![](assets/IMG_1625.jpg.warped.jpg)
+![](assets/IMG_1626.jpg.warped.jpg)
+![](assets/IMG_1627.jpg.warped.jpg)
+![](assets/IMG_1628.jpg.warped.jpg)
+![](assets/IMG_1629.jpg.warped.jpg)
+![](assets/IMG_1630.jpg.warped.jpg)
+![](assets/IMG_1631.jpg.warped.jpg)
+
+#### Panel discussion
+- How to measure the adversity of environment (data quality as well)? And measure algorithm performance degradation a a function of the harsh-ness of environment.
