@@ -18,7 +18,7 @@
 
 
 ### Alex Kendal@Cambridge+Wayve
-- Nvidia weather in 2016
+- [Nvidia weather in 2016](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf)
 - Turn log-tail distribution to normal tail distribution
 - How to get more human guidance in an exploration setting? --> simulation
 - Q: Sim2real problem --> how to learn a proper representation?
@@ -69,4 +69,71 @@
 	- real lidar and simulated lidar look almost the same
 
 ## Perception, Prediction, Data Collection for Autonomous Cars (from Lyft Level 5)
-- ds
+### Luc Vincent@EVP
+- 14% of LA is parking!
+- 1% of miles are ridesharing
+- Lyft Level 5
+- Building blocks
+	- Robotics platform
+	- Perception and prediction
+	- Map and localization
+	- Motion planning
+	- Motion control
+
+### Ashesh Jain@perception
+- Perception stacks
+	- sensor performance with distance
+- Data problem: 
+	- Labeling errors --> need to be sent back to data labeling team for correction
+	- Not all data are equal
+		- Automatically finding similar cases for labeling 
+		- Class imbalance
+		- Solution: Data Sampler: data booster, dump to database
+	- Query of data: get images with more than 20 pedestrians
+- 2D detection has been democratized
+- Point cloud deep learning
+	- Embedding of point cloud (interesting view point, like word2vec for words)
+	- Point cloud embedding
+		- PointNet does not help with outdoor scenes, global feature embedding works better indoor
+		- VoxelNet or PointPillars | Pixor (hand crafted)
+		- Multi-task multi sensor fusion from Uber
+- Practical
+	- unclassified clutter on the road
+	- Need class agnostic pipeline
+- Perception is not just about Deep Learning
+- Modeling uncerttainties in neural networks
+
+### Sammy Omari@prediction
+- Trajectory prediction
+	- Lane-graph-based rollout for trajectory hypothesis
+- Trajectory scoring (which trajectory is how likely)
+- Regress uncertainty and incorporate in loss ([Short-term Motion Prediction of Traffic Actors for Autonomous Driving using Deep Convolutional Networks](https://arxiv.org/pdf/1808.05819.pdf))
+- Is top down raster sufficient for prediction?
+	- Not for humans, pedestrian crossing or people on bikes. ([A data-driven approach for pedestrian intention estimation](https://ieeexplore.ieee.org/document/7795975))
+- Highly imbalanced data (most vehicles just follow lanes and follow rules)
+- How to detect online the uncertainty and quality of the dl or expert system?
+
+### Peter Ondruska@director of eng
+- Long tail of events: easy case quite often
+
+
+### Uncertainty in DL
+#### trajectory forecasting
+- Kris Kitani@CMU
+- How to recover **multi-model** from unimodal observation? "I want to know everyting the traffic agent may do" for safety critical systems
+- Input: egocentric video
+- Output: current pose, third person GT, future pose forecasting
+- Very underdetermined
+- Immitation learning (behavior cloning) is different from reinforcmenet leanring
+- Behavior cloning: min cross entropy
+	- forward x-entropy prioritize recall
+	- reverse x-entropy prioritize precision
+	- [Symmetric cross entropy](http://openaccess.thecvf.com/content_ECCV_2018/papers/Nicholas_Rhinehart_R2P2_A_ReparameteRized_ECCV_2018_paper.pdf)
+- How to identify extremely rare cases? We want to sample trajectories that are diverse and likely.
+
+#### Alex Kendall
+- Epistemic uncertainty: use MC dropout or ensemble
+- Aleatoric uncertainty remain constant while epistemic uncertainty increases for out of data example
+- **Note**: Improve epistemic uncertainty is higher priority, can be done offline
+- Critical problem: convert the long tail distribution to a uniform distribution
+- s
