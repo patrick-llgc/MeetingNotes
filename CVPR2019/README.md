@@ -25,4 +25,3 @@
 - Best paper: [A Theory of Fermat Paths for Non-Line-of-Sight Shape Reconstruction](http://imaging.cs.cmu.edu/fermat_paths/assets/cvpr2019.pdf)
 - Retrospective Most Impact Paper: ImageNet
 
-
