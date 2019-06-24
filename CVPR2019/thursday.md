@@ -4,7 +4,9 @@
 - [Improving Semantic Segmentation via Video Propagation and Label Relaxation]()
 	- relax boundary in the gt label
 - [Accel: A Corrective Fusion Network for Efficient Semantic Segmentation on Video]()
-	- ![]()
+	- ![](assets/thursday/IMG_1797.jpg.warped.jpg)
+	- ![](assets/thursday/IMG_1798.jpg.warped.jpg)
+	- ![](assets/thursday/IMG_1799.jpg.warped.jpg)
 	- Deep feature flow from MSRA
 - [Relation-Shape Convolutional Neural Network for Point Cloud Analysis]()
 	- Seems like pointnet?
@@ -77,6 +79,7 @@ with Polynomial Pooling](http://openaccess.thecvf.com/content_CVPR_2019/papers/W
 - [Leveraging Crowdsourced GPS Data for Road Extraction from Aerial Imagery](https://arxiv.org/abs/1905.01447)
 - [Multi-Task Multi-Sensor Fusion for 3D Object Detection](http://www.cs.toronto.edu/~byang/papers/mmf.pdf)
 - [Rare Event Detection using Disentangled Representation Learning](https://arxiv.org/abs/1812.01285)
+![](assets/thursday/IMG_1831.jpg.warped.jpg)
 
 ### video detection/segmentation
 - [FEELVOS: Fast End-to-End Embedding Learning for Video Object Segmentation](https://arxiv.org/abs/1902.09513)
