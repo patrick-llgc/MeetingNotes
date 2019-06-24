@@ -1,12 +1,13 @@
 # 2019 CVPR
 
-## [06/16/2019 (Sunday)](sunday.md)
+## [workshops](workshops.md)
+- Highlight: Pseudo-Lidar and ++
 - Highlight: Andrej's talk
 
-## [06/17/2019 (Monday)](monday.md)
-- Highlight: Pseudo-Lidar and ++
+## [posters](posters.md)
+- See [posters.md](posters.md) for details
 
-## [06/18/2019 (Tuesday)](tuesday.md)
+## [orals](orals.md)
 - Highlight: [Large-Scale Long-Tailed Recognition in an Open World](https://arxiv.org/abs/1904.05160)
 
 ### Opening remarks
