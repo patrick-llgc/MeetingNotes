@@ -163,7 +163,7 @@
 ![](assets/sunday/IMG_1609.jpg.warped.jpg)
 ![](assets/sunday/IMG_1610.jpg.warped.jpg)
 
-#### Illuminition in bad weather
+#### Illumination in bad weather
 - [Srinivasa Narasimhan](http://www.cs.cmu.edu/~srinivas/) from CMU
 - Enhance physics/sensors
 - people tend to drive fast in fog, due to bad perception of speed -- Nature 1998

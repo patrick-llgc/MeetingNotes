@@ -42,3 +42,5 @@
 - joint manifold deffusion for combining prediction on decoupled observation
 - siamese cascaded region proposal networks for real-time visual tracking
 - rules of the road: predicting driving behavior with a convolutional model of semantic interaction
+
+### Morning session
