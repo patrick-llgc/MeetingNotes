@@ -1,40 +1,6 @@
-## 06/20/2019 (Thursday)
+# Posters
+Posters that caught my eyes in the 6 Poster sessions from Tuesday to Thursday.
 
-## Video Segmentation **Note**
-- [Improving Semantic Segmentation via Video Propagation and Label Relaxation]()
-	- relax boundary in the gt label
-- [Accel: A Corrective Fusion Network for Efficient Semantic Segmentation on Video]()
-	- ![](assets/thursday/IMG_1797.jpg.warped.jpg)
-	- ![](assets/thursday/IMG_1798.jpg.warped.jpg)
-	- ![](assets/thursday/IMG_1799.jpg.warped.jpg)
-	- Deep feature flow from MSRA
-- [Relation-Shape Convolutional Neural Network for Point Cloud Analysis]()
-	- Seems like pointnet?
-- [BubbleNets: Learning to Select the Guidance Frame in Video Object Segmentation by Deep Sorting Frames]()
-	- This is similar to an actor-critic model?
-	- DAVIS2017 (first frame annotaiton)
-- [Collaborative Global-Local Networks for Memory-Efficient Segmentation of Ultra-High Resolution Images]()
-	- can it be used for accelerating existing methods?
-- Efficient Parameter-Free Clustering Using First Neighbor Relations **Note**
-- A Generative Appearance Model for End-To-End Video Object Segmentation
-
-
-## Deep learning
-- ABN (attention branch network)
-
-
-## Notes
-- Main contribution template:
-	- Proposed the problem
-	- Created a method to address the problem
-	- Contributed frist benchmark 
-- Video segmentation
-	- full segmentation on key frames and label propagation for frames in-between
-- FBNet: Hardware-Aware Efficient ConvNet Design via Differentiable Neural Architecture Search
-	- latency LUT works really great!
-
-	
-## Posters
 ### Theory
 - [Grid R-CNN](https://arxiv.org/abs/1811.12030) (SenseTime) **Note**
 - [Class-Balanced Loss Based on Effective Number of Samples](https://arxiv.org/abs/1901.05555)
@@ -84,3 +50,15 @@ with Polynomial Pooling](http://openaccess.thecvf.com/content_CVPR_2019/papers/W
 ### video detection/segmentation
 - [FEELVOS: Fast End-to-End Embedding Learning for Video Object Segmentation](https://arxiv.org/abs/1902.09513)
 - [DFANet: Deep Feature Aggregation for Real-Time Semantic Segmentation](https://arxiv.org/abs/1904.02216)
+
+### TODO
+## posters
+- noise aware unsupervised deep lidar stereo fusion
+- an attention based recurrent neural network for vehicle tailgate recognition
+- superdepth: monocular 
+- ROI-10D: Monocular Lifting of 2d detection to 6d pose and metric shape
+- TASCNet Learning to fuse things and stuff
+- PackNet SfM
+- SPIGAN previleged adversarial learning from simulation
+
+### Tuesday and Wednesday morning poster to be skimmed
