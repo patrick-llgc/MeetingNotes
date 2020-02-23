@@ -40,7 +40,7 @@
 
 ### Workshop: CARLA
 - Drago@Waymo
-- What is the input representation for powering realsunday/sunday/IMGistic agents?
+- What is the input representation for powering realistic agents?
 	- realistic perception (CARLA)
 	- box world (ChauffeurNet)
 - Is pure imitation sufficient? 
@@ -94,7 +94,7 @@
 ![](assets/sunday/IMG_1580.jpg.warped.jpg)
 ![](assets/sunday/IMG_1582.jpg.warped.jpg)
 ![](assets/sunday/IMG_1583.jpg.warped.jpg)
-- **Note**: You can only develop as fast as you can evaluate. The team can only move as fast as your evaluation allows. So it is critical to have 
+- **Note**: You can only develop as fast as you can evaluate. The team can only move as fast as your evaluation allows. So it is critical to have a fast evaluation pipeline.
 - Jitter over time indicate uncertainty implicitly. Use uncertainty, but not exactly Bayesian networks, but cheap approximation to that.
 - Oversample "boat on trailer" 
 
@@ -135,7 +135,6 @@
 
 #### [fastDraw: Predict lane lines](FastDraw: Addressing the Long Tail of Lane Detection by Adapting a Sequential Prediction Network)
 - conventional methods
-![](assets/sunday/IMG_1593.jpg.warped.jpg)
 ![](assets/sunday/IMG_1596.jpg.warped.jpg)
 - Assume RNN to be Markov
 ![](assets/sunday/IMG_1597.jpg.warped.jpg)
@@ -285,7 +284,7 @@
 - Not all actors influence driving behavior
 	- Most critical object need to be evaluated separately
 	- Multi-sensor fusion: Liang et al, CVPR 2019
-	- Xiong et al, CVPR 2019 oral, UPSnet, UPSNet ([A Unified Panoptic Segmentation Network]())
+	- Xiong et al, CVPR 2019 oral, UPSnet, UPSNet ([A Unified Panoptic Segmentation Network](https://arxiv.org/pdf/1901.03784.pdf))
 - Joint perception and prediction
 	- Luo et al, CVPR2018 oral (prediction of waypoint in the future)
 	- IntentNet: [CoRL 2018](http://www.cs.toronto.edu/~wenjie/papers/intentnet_corl18.pdf)
