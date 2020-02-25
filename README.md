@@ -8,3 +8,4 @@ Notes taken at major conferences, with emphasis on artificial intelligence.
 - [Radar Conference 2019](RadarCon2019/README.md)
 - [Radar Summer School 2019](RadarCon2019SummerSchool/README.md)
 - [CVPR 2019](CVPR2019/README.md)
+- [CVPR Post AC Meeting Workshop 2020](CVPRPostAC2020/README.md)

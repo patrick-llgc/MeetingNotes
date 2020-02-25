@@ -19,6 +19,8 @@ Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
 	- Differentiable projection, Z-buffer --> PyTorch3D
 	- Similar to depth prediction (SfMLearner)?
 	- Next step: self-supervised depth
+	![](assets/johnson_umich1.png)
+	![](assets/johnson_umich2.png)
 - 8:12 - 8:24	Alex Schwing	Chirality Nets for Human Pose Regression
 	- UIUC
 	- [Chirality Nets for Human Pose Regression](https://papers.nips.cc/paper/9027-chirality-nets-for-human-pose-regression) NIPS 2019
@@ -29,19 +31,22 @@ Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
 		- Work the charality equivariance into the neural nets
 	- Benefits of charality
 		- Data efficient
+		- Equivariance guarantee
 	- Similar to pointNet
 	- Will take you down for assymetric tasks
+	![](assets/schwing_uiuc.png)
 - 8:24 - 8:36	Georgia Gkioxari	Challenges in PyTorch 3D
 	- FAIR
 	- 2D to 3D: Mesh R-CNN
 	- Mask RCNN: more than 500 samples per image
 	- Batching in 3D: varying number of vertexes, **hetereogeneous batches**
-		- Auxiliary, Padded tensor
+		- Auxiliary tensor to remember index
+		- Padded tensor
 		- different batching mode even int he same forward pass
 	- Differentiable renderer
 	- PyTorch3D is important for any Neural nets with rendering
 		- can be useful for 3D MOD
-		- [video demo](https://www.youtube.com/watch?v=lG3s_uHJQYY)
+		- [video demo](https://www.youtube.com/watch?v=lG3s_uHJQYY) and [another one](https://www.youtube.com/watch?v=FQugQKz8hwE)
 - 8:36 - 8:48	Carl Vondrick	Oops! Predicting Unintentional Action
 	- [Oops! Predicting Unintentional Action in Video](https://arxiv.org/abs/1911.11206) CVPR 2020
 	- Survivor bias of video Data
@@ -60,7 +65,7 @@ Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
 	- Image captioning: RNN --> Transfomer
 	- Transformer is a soft dictionary
 	- self-attention and cross-attention
-- 9:12 - 9:24	Vineeth N Balasubramanian	Zero-shot Task Transfer/Causal Attributions in Neural Networks
+- 9:12 - 9:24	Vineeth N Balasubramanian		Zero-shot Task Transfer/Causal Attributions in Neural Networks
 	- IIT Hyderabad
 	- related to and inspired by Taskconomy
 	- Input: task correlation matrix: either crowd sourcing or Taskconomy
@@ -167,6 +172,13 @@ Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
 
 ## Session IV @ 3:30PM-5:00PM
 - 3:30 - 3:42	Richard Zhang	CNN-Generated Images Are Surprisingly Easy to Spot ... for Now
+	- Adobe
+	- [Making Convolutional Networks Shift-Invariant Again](https://arxiv.org/abs/1904.11486) ICML 2019
+	- [CNN-generated images are surprisingly easy to spot... for now](https://arxiv.org/abs/1912.11035) CVPR 2020
+		-  Our findings suggest the
+intriguing possibility that today’s CNN-generated images
+share some common systematic flaws, preventing them from
+achieving realistic image synthesis.
 - 3:42 - 3:54	Sanjeev Koppal	Fast Foveating Cameras, LIDARs and Projectors
 - 3:54 - 4:06	Shuran Song	Grasping in the Wild
 - 4:06 - 4:18	Subhransu Maji	Dark Ecology: Unraveling Mysteries of Bird Migration using Weather Radar and Machine Learning
