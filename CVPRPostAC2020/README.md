@@ -1,10 +1,8 @@
 # [CVPR Post AC Meeting 2020](http://www.cvpr2020-ac-meeting.org/workshop.html)
 
-Time: 2020 Feb 24 (Monday)
-
-Location: Location: Atkinson Auditorium @ UCSD
-
-Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
+- Time: 2020 Feb 24 (Monday)
+- Location: Location: Atkinson Auditorium @ UCSD
+- Live stream recording available on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8). (almost 8 hours!)
 
 ## Session I @ 8:00AM-10:00AM
 - 8:00 - 8:12	Justin Johnson	End-to-End View Synthesis from a Single Image
@@ -19,8 +17,8 @@ Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
 	- Differentiable projection, Z-buffer --> PyTorch3D
 	- Similar to depth prediction (SfMLearner)?
 	- Next step: self-supervised depth
-	![](assets/johnson_umich1.png)
-	![](assets/johnson_umich2.png)
+	![](assets/johnson_umich1.jpg)
+	![](assets/johnson_umich2.jpg)
 - 8:12 - 8:24	Alex Schwing	Chirality Nets for Human Pose Regression
 	- UIUC
 	- [Chirality Nets for Human Pose Regression](https://papers.nips.cc/paper/9027-chirality-nets-for-human-pose-regression) NIPS 2019
@@ -34,7 +32,8 @@ Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
 		- Equivariance guarantee
 	- Similar to pointNet
 	- Will take you down for assymetric tasks
-	![](assets/schwing_uiuc.png)
+	![](assets/schwing_uiuc0.jpg)
+	![](assets/schwing_uiuc1.jpg)
 - 8:24 - 8:36	Georgia Gkioxari	Challenges in PyTorch 3D
 	- FAIR
 	- 2D to 3D: Mesh R-CNN
@@ -47,6 +46,11 @@ Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
 	- PyTorch3D is important for any Neural nets with rendering
 		- can be useful for 3D MOD
 		- [video demo](https://www.youtube.com/watch?v=lG3s_uHJQYY) and [another one](https://www.youtube.com/watch?v=FQugQKz8hwE)
+	![](assets/georgia_fair1.jpg)
+	![](assets/georgia_fair2.jpg)
+	![](assets/georgia_fair3.jpg)
+	![](assets/georgia_fair4.jpg)
+	![](assets/georgia_fair5.jpg)
 - 8:36 - 8:48	Carl Vondrick	Oops! Predicting Unintentional Action
 	- [Oops! Predicting Unintentional Action in Video](https://arxiv.org/abs/1911.11206) CVPR 2020
 	- Survivor bias of video Data
@@ -65,6 +69,8 @@ Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
 	- Image captioning: RNN --> Transfomer
 	- Transformer is a soft dictionary
 	- self-attention and cross-attention
+	![](assets/cucchiara_italy1.jpg)
+	![](assets/cucchiara_italy2.jpg)
 - 9:12 - 9:24	Vineeth N Balasubramanian		Zero-shot Task Transfer/Causal Attributions in Neural Networks
 	- IIT Hyderabad
 	- related to and inspired by Taskconomy
@@ -72,6 +78,8 @@ Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
 	- Zero shot: how to learn models for tasks without Gt, given other tasks with GT
 	- Meta Learning to learn a regressor to learn the weights for a new task based on the weight of existing tasks
 	- Limitation: output space need to be the same
+	![](assets/balasubramanian_iit1.jpg)
+	![](assets/balasubramanian_iit2.jpg)
 - 9:24 - 9:36	Roozbeh Mottaghi	Interactive Scene Understanding
 	- Allen Institute for AI
 	- CV problems: passive/active/interactive
@@ -83,11 +91,15 @@ Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
 	- Efficiently Training Video Models [A Multigrid Method for Efficiently Training Video Models](https://arxiv.org/abs/1912.00998)
 	- [Learning by Cheating](https://arxiv.org/abs/1912.12294)
 	- Tracking objects as points, extremely fast on MOT
+	![](assets/philipp_ut1.jpg)
+	![](assets/philipp_ut2.jpg)
+	![](assets/philipp_ut3.jpg)
 - 9:48 - 10:00	David Fouhey	Internet-Scale Hands In Interaction
 	- UMich
 	- Learn how we interact with the world
 	- Large dataset with 100k frames 
 	- Ego centric, third person videos
+	![](assets/david_umich1.jpg)
 
 ## Session II @ 10:30AM-12:00AM
 - 10:30 - 10:42	[Laura Leal-Taixé](https://dvl.in.tum.de/team/lealtaixe/)	Video anonymization
@@ -97,6 +109,8 @@ Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
 		- Create new identities that does not exists
 	- Input: background + facial landmarks
 	- Without retraining, the identification perf drops to zero.
+	![](assets/laura_tum1.jpg)
+	![](assets/laura_tum2.jpg)
 - 10:42 - 10:54	[Vinay Namboodiri](https://vinaypn.github.io/pubs_short/)	Integrating Vision, Speech and Language
 	- IIT Kampur
 	- Modify sync to improve lip sync
@@ -119,9 +133,14 @@ Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
 		- Inpaint
 		- Learn to classify a pair is neighbor or not
 	- Even humans would need to know the maximum margin of erosion to perform well.
+	![](assets/ayellet_technion0.jpg)
+	![](assets/ayellet_technion1.jpg)
+	![](assets/ayellet_technion2.jpg)
 - 11:30 - 11:42	Boqing Gong	Long-Tailed Visual Recognition Is A Domain Adaptation Problem
 	- Google
 	- Current/previous methods assumes that the conditional probability for CAT and TAC are the same (not true for minority classes)
+	![](assets/boqing_google1.jpg)
+	![](assets/boqing_google2.jpg)	
 - 11:42 - 11:54	Chen Sun	Speech2Action
 	- Google
 	- Annotating actions in videos are very costly
@@ -136,6 +155,9 @@ Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
 	- [Differentiable Volumetric Rendering: Learning Implicit 3D Representations without 3D Supervision](https://arxiv.org/abs/1912.07372)
 	- No need to store intermediate results
 	- [blog](https://autonomousvision.github.io/)
+	![](assets/andreas_ti1.jpg)
+	![](assets/andreas_ti2.jpg)
+	![](assets/andreas_ti3.jpg)
 - 1:12 - 1:24	[Hamed Pirsiavash](https://www.csee.umbc.edu/~hpirsiav/)	Adversarial Patches Exploiting Contextual Reasoning in Object Detection
 	- Univ of Maryland
 	- last layer has receptive field of the entire image. YOLO uses global info
@@ -144,19 +166,26 @@ Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
 	- blinding toward one or multiple object classes
 	- Introduce DetGrad-Cam
 	- Impossible to detect the patch (the patch can be initialized from a natural image and it does not need to be very random)
+	![](assets/pirsiavash_maryland1.jpg)
+	![](assets/pirsiavash_maryland2.jpg)
 - 1:24 - 1:36	Hao Su	SAPIEN: A Simulated Part-based Interactive Environment
 	- Simulation environment
 - 1:36 - 1:48	[Jun-Yan Zhu](https://people.csail.mit.edu/junyanz/)	Visualizing and Understanding GANs
 	- [Seeing What a GAN Cannot Generate](https://arxiv.org/abs/1910.11626) ICCV 2019
 	- which neurals are responsible for a feature
 	- How to manipulate an existing photo? Reconstruct the image first then manipulate the neurons
+	![](assets/junyan_cmu1.jpg)
+	![](assets/junyan_cmu2.jpg)
 - 1:48 - 2:00	Manmohan Chandraker		Physically-Based Learning for Inverse Rendering
 	- Inverse rendering via Differentiable rendering layer
+	![](assets/chandraker_ucsd1.jpg)
 - 2:00 - 2:12	Minsu Cho	Composing Neural Features for Visual Correspondence in the Wild
 	- Postech
 	- Visual correspondence <==> Semantic correspondence
 	- Multilayer search strategy for semantic correspondence
 	- Exhaustive search vs beam search
+	![](assets/minsu_postech1.jpg)
+	![](assets/minsu_postech2.jpg)
 - 2:12 - 2:24	Natalia Neverova	Transferring Dense Pose to Animals
 	- FAIR in Paris, MPI
 	- DensePose (ultimate human parsing)
@@ -164,10 +193,10 @@ Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
 	- **Temporal consistency** is a good indicator of network performance as well
 - 2:24 - 2:36	Octavia Camps	Compact and Interpretable Dynamics-based Video Representations
 	- Integrate kalman filter into the representation and keep the representations consistent
-- 2:36 - 2:48	Rei Kawakami	Improving Robustness in Recognition: Motion, Open-set, and Multi-task learning
+- 2:36 - 2:48	Rei Kawakami	Improving Robustness in Recognition: Motion, Open-set, and Multi-task learning 川上 玲（東京大学）
 	- Video can help object detection as well -- the motion pattern can help differentiate FPs
+	- [みなさんのデータによる首里城のデジタル復元](https://www.our-shurijo.org/en/) (inspired by [building Rome in a day](https://grail.cs.washington.edu/rome/))
 - 2:48 - 3:00	Vicente Ordonez	Explicit Compositionality in Language and Vision
-	- s
 
 
 ## Session IV @ 3:30PM-5:00PM
@@ -175,12 +204,12 @@ Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
 	- Adobe
 	- [Making Convolutional Networks Shift-Invariant Again](https://arxiv.org/abs/1904.11486) ICML 2019
 	- [CNN-generated images are surprisingly easy to spot... for now](https://arxiv.org/abs/1912.11035) CVPR 2020
-		-  Our findings suggest the
-intriguing possibility that today’s CNN-generated images
-share some common systematic flaws, preventing them from
-achieving realistic image synthesis.
+		-  Our findings suggest the intriguing possibility that today’s CNN-generated images share some common systematic flaws, preventing them from achieving realistic image synthesis.
+	![](assets/richard_adobe1.jpg)
+	![](assets/richard_adobe2.jpg)
+	![](assets/richard_adobe3.jpg)
 - 3:42 - 3:54	Sanjeev Koppal	Fast Foveating Cameras, LIDARs and Projectors
 - 3:54 - 4:06	Shuran Song	Grasping in the Wild
-- 4:06 - 4:18	Subhransu Maji	Dark Ecology: Unraveling Mysteries of Bird Migration using Weather Radar and Machine Learning
+
 
 
