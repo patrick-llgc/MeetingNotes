@@ -4,7 +4,7 @@
 - Location: Location: Atkinson Auditorium @ UCSD
 - Live stream recording available on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8). (almost 8 hours!)
 
-My takeaways:
+### My takeaways:
 
 - Monocular 3D learning is hot and differentiable rendering is a useful tool for it (now available in pytorch3D)
 - Learning on video (efficient training, 4K bird, oops! dataset)
