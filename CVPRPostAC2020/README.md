@@ -11,6 +11,7 @@
 - Self supervised learning for pretraining
 - More work on understanding human intention
 - And some solid work on incorporating conventional knowledge into CNN (charality net, GAN paint, make CNN shift invariant again, etc)
+- Many female speakers. I noticed that the female researchers tend to work on projects that has more direct social impact (detecting birds, solving puzzles for archeology, migrate human dense pose for Chimpanzees, anonymize videos). To be fair, there are male researchers working on bias in DL too!
 
 ## Session I @ 8:00AM-10:00AM
 - 8:00 - 8:12	Justin Johnson	End-to-End View Synthesis from a Single Image
