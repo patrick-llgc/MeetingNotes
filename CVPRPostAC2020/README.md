@@ -4,6 +4,14 @@
 - Location: Location: Atkinson Auditorium @ UCSD
 - Live stream recording available on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8). (almost 8 hours!)
 
+My takeaways:
+
+- Monocular 3D learning is hot and differentiable rendering is a useful tool for it (now available in pytorch3D)
+- Learning on video (efficient training, 4K bird, oops! dataset)
+- Self supervised learning for pretraining
+- More work on understanding human intention
+- And some solid work on incorporating conventional knowledge into CNN (charality net, GAN paint, make CNN shift invariant again, etc)
+
 ## Session I @ 8:00AM-10:00AM
 - 8:00 - 8:12	Justin Johnson	End-to-End View Synthesis from a Single Image
 	- Feifei Li's student, UMich
@@ -184,8 +192,8 @@
 	- Visual correspondence <==> Semantic correspondence
 	- Multilayer search strategy for semantic correspondence
 	- Exhaustive search vs beam search
-	![](assets/minsu_postech1.jpg)
 	![](assets/minsu_postech2.jpg)
+	![](assets/minsu_postech1.jpg)
 - 2:12 - 2:24	Natalia Neverova	Transferring Dense Pose to Animals
 	- FAIR in Paris, MPI
 	- DensePose (ultimate human parsing)
