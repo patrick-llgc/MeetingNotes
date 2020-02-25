@@ -4,6 +4,8 @@ Time: 2020 Feb 24 (Monday)
 
 Location: Location: Atkinson Auditorium @ UCSD
 
+Live stream on [youtube](https://www.youtube.com/watch?v=9bZT5dzyeS8).
+
 ## Session I @ 8:00AM-10:00AM
 - 8:00 - 8:12	Justin Johnson	End-to-End View Synthesis from a Single Image
 	- Feifei Li's student, UMich
@@ -122,17 +124,45 @@ Location: Location: Atkinson Auditorium @ UCSD
 
 ## Session III @ 1:00PM-3:00PM
 - 1:00 - 1:12	Andreras Geiger	Learning Implicit 3D Reconstruction without 3D Supervision
-	- Toyota Institute
+	- Toyota Institute, University of Tubingen, MPI
+	- Output representation: 
+		- Voxels/Points/Meshes (discretize)
+	- Occupancy networks
+	- [Differentiable Volumetric Rendering: Learning Implicit 3D Representations without 3D Supervision](https://arxiv.org/abs/1912.07372)
+	- No need to store intermediate results
+	- [blog](https://autonomousvision.github.io/)
 - 1:12 - 1:24	[Hamed Pirsiavash](https://www.csee.umbc.edu/~hpirsiav/)	Adversarial Patches Exploiting Contextual Reasoning in Object Detection
-- 1:24 - 1:36	Hao Su	TBD
+	- Univ of Maryland
+	- last layer has receptive field of the entire image. YOLO uses global info
+	- conditional reasoning leaves backdoor for adversarial attacks
+	- single shot detectors are hard to defend against adversarial patches
+	- blinding toward one or multiple object classes
+	- Introduce DetGrad-Cam
+	- Impossible to detect the patch (the patch can be initialized from a natural image and it does not need to be very random)
+- 1:24 - 1:36	Hao Su	SAPIEN: A Simulated Part-based Interactive Environment
+	- Simulation environment
 - 1:36 - 1:48	[Jun-Yan Zhu](https://people.csail.mit.edu/junyanz/)	Visualizing and Understanding GANs
 	- [Seeing What a GAN Cannot Generate](https://arxiv.org/abs/1910.11626) ICCV 2019
-- 1:48 - 2:00	Manmohan Chandraker	TBD
+	- which neurals are responsible for a feature
+	- How to manipulate an existing photo? Reconstruct the image first then manipulate the neurons
+- 1:48 - 2:00	Manmohan Chandraker		Physically-Based Learning for Inverse Rendering
+	- Inverse rendering via Differentiable rendering layer
 - 2:00 - 2:12	Minsu Cho	Composing Neural Features for Visual Correspondence in the Wild
+	- Postech
+	- Visual correspondence <==> Semantic correspondence
+	- Multilayer search strategy for semantic correspondence
+	- Exhaustive search vs beam search
 - 2:12 - 2:24	Natalia Neverova	Transferring Dense Pose to Animals
+	- FAIR in Paris, MPI
+	- DensePose (ultimate human parsing)
+	- bijective mapping between 3D models of human and other creatures
+	- **Temporal consistency** is a good indicator of network performance as well
 - 2:24 - 2:36	Octavia Camps	Compact and Interpretable Dynamics-based Video Representations
+	- Integrate kalman filter into the representation and keep the representations consistent
 - 2:36 - 2:48	Rei Kawakami	Improving Robustness in Recognition: Motion, Open-set, and Multi-task learning
+	- Video can help object detection as well -- the motion pattern can help differentiate FPs
 - 2:48 - 3:00	Vicente Ordonez	Explicit Compositionality in Language and Vision
+	- s
 
 
 ## Session IV @ 3:30PM-5:00PM
@@ -140,6 +170,5 @@ Location: Location: Atkinson Auditorium @ UCSD
 - 3:42 - 3:54	Sanjeev Koppal	Fast Foveating Cameras, LIDARs and Projectors
 - 3:54 - 4:06	Shuran Song	Grasping in the Wild
 - 4:06 - 4:18	Subhransu Maji	Dark Ecology: Unraveling Mysteries of Bird Migration using Weather Radar and Machine Learning
-- 4:18 - 4:30	Varun Jampani	Self-supervised Part and Viewpoint Discovery from Image Collections
-- 4:30 - 4:42	Xi Li	TBD
-- 4:42 - 4:54	Zeynep Akata	TBD
+
+
