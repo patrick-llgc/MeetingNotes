@@ -34,13 +34,14 @@
 	- seeing the unseen (occlusion), and predict the future
 	- Pose regression tasks:
 		- concatenation of joint coordinates
-		- 2D pose mirroed --> 3D pose mirrored (charality equivariance)
+		- 2D pose mirrored --> 3D pose mirrored (charality equivariance)
 		- Work the charality equivariance into the neural nets
 	- Benefits of charality
 		- Data efficient
 		- Equivariance guarantee
 	- Similar to pointNet
-	- Will take you down for assymetric tasks
+	- Will take you down for asymmetric tasks
+	- How about adding the self consistency loss in training?
 	![](assets/schwing_uiuc0.jpg)
 	![](assets/schwing_uiuc1.jpg)
 - 8:24 - 8:36	Georgia Gkioxari	Challenges in PyTorch 3D
@@ -184,7 +185,6 @@
 	- which neurals are responsible for a feature
 	- How to manipulate an existing photo? Reconstruct the image first then manipulate the neurons
 	![](assets/junyan_cmu1.jpg)
-	![](assets/junyan_cmu2.jpg)
 - 1:48 - 2:00	Manmohan Chandraker		Physically-Based Learning for Inverse Rendering
 	- Inverse rendering via Differentiable rendering layer
 	![](assets/chandraker_ucsd1.jpg)
