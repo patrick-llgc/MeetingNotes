@@ -98,7 +98,7 @@
 		- range view: compact, panorama range for lidar. Efficiently processable by 2D CNN. Hard to incorporate prior knowledge
 		- BEV: also sparse, can use 2D conv efficiently
 		- point set: preserve point location; harder to learn; irregular memory access and dynamic kernel computation
-		![](assets/sunday/sunday_016.jpg)
+		![](assets/sunday/sunday_018.jpg)
 	- Sparse convolution, sparse block convolution; use road map mask and object mask to speed up computation
 	- One stage (real time, but less accurate) and two stage
 		- PIXOR
