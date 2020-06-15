@@ -7,21 +7,21 @@
 	- Erwin Kruppa in 1913: 5 pts solution
 	- Keypoint based methods vs direct method
 		- How to deploy DL approaches to boost direct SLAM
-	![]()
+	![](assets/sunday/sunday_022.jpg)
 	- LSD SLAM: large scale direct SLAM
 		- Pose and 3D alternatingly
 		- How to do photometric adjustment simultaneously? --> DSO, as second gen of LSD
 	- DSO: Direct Sparse Odometry (1% drift): better than ORB-SLAM
-	![]()
+		![](assets/sunday/sunday_021.jpg)
 	- DL is not SOTA in early works (2017 and 2018)
 	- DVSO (deep virtual stereo odometry) (ECCV 2018), mono DVSO on par with St. DSO. Very little scale drift.
 	- [D3VO](https://github.com/patrick-llgc/Learning-Deep-Learning/blob/master/paper_notes/d3vo.md)
 	- on par with stereo VIO, much crisper than mono DSO
-	![]()
+	![](assets/sunday/sunday_020.jpg)
 	- [Gasuss Newton Net for multi-weather localization]() ICRA 2020
 	- Genealizes quite well. Train on sunny/rainy, and test on sunny/overcast
 	![]()
-	- How to compensate for photo consisntency loss when it breaks?
+	- Q&A: How to compensate for photo consistency loss when the assumption breaks?
 		- predict affine transformation
 		- predict a mask where it fails and downweigh
 		- predict the changes with nueral network (sunny/rainy)
@@ -38,6 +38,7 @@
 - Geometric reasoning in Machine vision using only 2D supervision
 	- Simon Lucey, Argo
 	- Mono image --> CNN --> 3xP + 6 DoF pose
+	![](assets/sunday/sunday_007.jpg)
 	- Pacal 3D
 		- But 3D groundtruth labeling is tedious and difficult (with 3D dictionary)
 		- Using simulation will lead to the sim2real gap. 
@@ -60,7 +61,24 @@
 	- Quo vadis visual SLAM?
 		- multi-user SLAM
 		- integrating object recognition into the front end 
-		
+- SLAM with plane and objects
+	- Sichao Yang, @Facebook, CMU
+	- point-based methods 
+		- Works well in normal condition (Orb-slam, DSO)
+		- too sparse to detect car in driving
+		- challenging for low-texture place	
+	- Background
+		- optimization method: decoupled (regress pose, then detect) and tightly coupled
+		- object representation: no shape prior (cuboid, sphere, ellipsoid), weak prior (skeleton) and accurate prior (3D cad)
+			- if not 100% sure if the object matches the 3D CAD, it is hard to use silouette loss. We could use shape encoder to adjust the 3D instances. 
+		- optimization cost
+	- **Single view detection, and multiview for optimization**
+		- [CubeSLAM: Monocular 3D Object SLAM](https://arxiv.org/abs/1806.00557)
+		- **Tracking with keypoint within object (maybe w/ optical flow)**. Much better than bbox based approach.
+		- Fixed object size assumption.
+		- For indoor environment looks fabulous. Do not need explicit loop closure to get good performance. 
+		- Dense map just reproject the image onto the plane. --> Can we do the same for moving cars?
+		- **Dynamic object SLAM**
 	
 ## [Safe Artificial Intelligence for Automated Driving](https://sites.google.com/view/saiad2020/home?authuser=0)
 - [conference page with videos and slides](http://cvpr20.com/safe-artificial-intelligence-for-automated-driving/)
@@ -80,6 +98,7 @@
 		- range view: compact, panorama range for lidar. Efficiently processable by 2D CNN. Hard to incorporate prior knowledge
 		- BEV: also sparse, can use 2D conv efficiently
 		- point set: preserve point location; harder to learn; irregular memory access and dynamic kernel computation
+		![](assets/sunday/sunday_016.jpg)
 	- Sparse convolution, sparse block convolution; use road map mask and object mask to speed up computation
 	- One stage (real time, but less accurate) and two stage
 		- PIXOR
@@ -93,18 +112,23 @@
 		- Fusion at input: pointpainting, limited exploitation of camera data
 		- Fusion at Feature: PointFusion, ContFuse; more robust to small calib errors; more computation cost
 	- Radar
-	![]()
+	![](assets/sunday/sunday_016.jpg)
+	![](assets/sunday/sunday_017.jpg)
 	- HD maps
 		- Geometric correction by subtracting ground height
 		- raster map (CheuffeurNet)
 		- Lane graph (vector net)
+	![](assets/sunday/sunday_015.jpg)
+	![](assets/sunday/sunday_014.jpg)
+	![](assets/sunday/sunday_013.jpg)
 	- Detecting the unknown by projecting to an semantic-agnostic space
+	![](assets/sunday/sunday_012.jpg)
 - Prediction
 	- tradditional
 		- Unroll the tracker's state with a kinematic model (linear motion model, constant turn rate, etc)
 		- Maneuver-based, classify first
 	- Using neural network for prediction, with HD map
-	![]()
+	![](assets/sunday/sunday_011.jpg)
 	- Joint perception and prediction
 		- [Fast and Furious]()
 		- [IntentNet]()
@@ -112,18 +136,20 @@
 	- Using social pooling to extract social vector to model interaction
 	- Trajectory uncertainty and multi-modality
 	- mixture of Gaussian, occupancy grid, **trajectory sets** (coverNet; seems most promising), Auto-regressive (R2P2, trajectron; slow, compounding error)
-	![]()
+	![](assets/sunday/sunday_010.jpg)
 	- Use prior knowledge in precise multimodal prediction; less off road/map behavior
 	- Scene-coherent sampling: social auto-regressive methods, using states of other actors when unrolling. Alternatively, ILVM (implicit latent variable model for scene-consistency motion forecasting) can be used for parallel sampling.
+	![](assets/sunday/sunday_001.jpg)
 - Motion planning and control
 	- Route, behavior, trajectory planning
 	- Route planning: A*, Dijkstra algorithm
 	- Behavior planning: reduce complexity in trajectory planning
 		- State machine: hard to generalize
 		- Optimal driving corridor
-	![]()
+	![](assets/sunday/sunday_009.jpg)
 	- Trajectory planning: 
 		- Continuous optimization (variable execution time, problematic for safety-critical applications)
+		![](assets/sunday/sunday_009.jpg)
 		- Sampling based methods (suboptimal solution)
 	- Control
 		- Path following
@@ -139,7 +165,9 @@
 	- minimal (3 DoF lat, long, yaw) vs complete 6 DoF
 	- Localization as State Space Estimation
 	- Bayesian filter: Usually not tractable in practice
-	![]()
+		![](assets/sunday/sunday_004.jpg)
+		![](assets/sunday/sunday_002.jpg)
+		![](assets/sunday/sunday_003.jpg)
 		- Kalman filter: efficient, compact, but gaussian-like and unimodal (single hypothesis tracking)
 		- Particle filter: non-parametric, any distribution, supports multi-modal, but may suffer from mode collapse due to insufficient sampling
 		- Histogram filter: any distribution, multi-modal, avoids unimodal collapse, but memory intensive
@@ -182,6 +210,27 @@
 		- pseudo-3D conv
 		- Decoupled 3D conv
 - Recent SOTA (2014-2020)
-	![]()
-	- d
+	![](assets/sunday/sunday_005.jpg)
+	- DeepVideo by Karpathy: fovea and context streams
+	- Two stream methods: spatial stream + temporal stream (single frame + optical flow)
+		- But optical flow calculation and loading I/O slows down training and inference
+	- 3D CNN
+		- C3D
+		- I3D (inflating and boostraping)
+		- P3D: factorize 3x3x3 into simpler kernels
+		- non-local
+		- slow-fast (cf. two stream models. slow-fast models two temporal speeds, not spatial and temporal modeling)
+		- X3D: improved slimmed slow-fast
+	- Other works:
+		- Directly inferencing video codec
+		- draw inspiration from optical flow, and use CNN to learn optical flow on the side 
+		- [TSM: Temporal Shift Module for Efficient Video Understanding](http://openaccess.thecvf.com/content_ICCV_2019/papers/Lin_TSM_Temporal_Shift_Module_for_Efficient_Video_Understanding_ICCV_2019_paper.pdf): temporal shift, suitable for video object detection and edge deployment. 
 - Decord: An Efficient Video Reader for Deep Learning
+	- Decoding videos to frames
+		- takes 10x more space
+		- I/O bottleneck
+		- Data storage is huge!
+	- Random access > sequential read.
+	- CPU or GPU loading.
+	- pythonic
+	- Can be used in many DL frameworks, including pytorch.
