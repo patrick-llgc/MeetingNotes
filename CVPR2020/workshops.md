@@ -79,10 +79,15 @@
 		- For indoor environment looks fabulous. Do not need explicit loop closure to get good performance. 
 		- Dense map just reproject the image onto the plane. --> Can we do the same for moving cars?
 		- **Dynamic object SLAM**
-	
+
 ## [Safe Artificial Intelligence for Automated Driving](https://sites.google.com/view/saiad2020/home?authuser=0)
 - [conference page with videos and slides](http://cvpr20.com/safe-artificial-intelligence-for-automated-driving/)
 
+## [Learning and understanding single image depth estimation in the wild](https://sites.google.com/view/cvpr-2020-depth-from-mono/home/talks-slides?authuser=0)
+All talks and slides are uploaded.
+
+## [Visual Recognition for Images, Video, and 3D](http://s9xie.github.io/Tutorials/CVPR2020/)
+All talks and slides are uploaded.
 
 
 ## [All About Self-Driving](http://www.allaboutselfdriving.com/)
@@ -234,3 +239,43 @@
 	- CPU or GPU loading.
 	- pythonic
 	- Can be used in many DL frameworks, including pytorch.
+
+	
+## [SCALABILITY IN AUTONOMOUS DRIVING](https://sites.google.com/view/cvpr20-scalability) ([video on youtube](https://www.youtube.com/watch?v=XvTS57jJQF8&feature=youtu.be))
+- Scaling data and data scaling (with simulation and GAN)
+	- Paul Newman, Oxbotica & University of Oxford
+	- The four questions of AD
+	![](assets/monday/monday_01.jpg)
+	- Simulator: lidar data is easy to simulate
+	- Experience: drive around the same scene again and again. Self-labeling source via localization + Map: We know where we are, and we know where to look
+		- Open-loop Maps are free
+		- Copy road markers to 2D images
+		- Vision + geometry: depth groundtruth
+		- This needs to have fully labeled video, and need highly precise localization (< 0.1 deg for YPR)
+	![](assets/monday/monday_02.jpg)
+	- Data synthesis. Generate scenes with semantic maps, learning to in-paint
+		- cycleGAN: not necessarily easy to train, need to tune
+		![](assets/monday/monday_03.jpg)
+		![](assets/monday/monday_04.jpg)
+		![](assets/monday/monday_05.jpg)
+		![](assets/monday/monday_06.jpg)
+		- Use semantic map to modulate what to manipulate
+		- class swapping (tree to and from building)
+- Andrej Karpathy
+	- Tesla Autopilot
+	- Navigate on Autopilot
+	- Stops on Autopilot
+	![](assets/monday/monday_07.jpg)
+	- Vision based approach
+		- No lidar, no HD maps (self-built minimalistic HD maps)
+	- For Chinese market
+	![](assets/monday/monday_08.jpg) 
+	![](assets/monday/monday_09.jpg) 
+	- Driving with HD map can be a burden: need to maintain HD Maps	
+	![](assets/monday/monday_11.jpg) 
+	- Corner cases
+	![](assets/monday/monday_10.jpg) 
+	
+	
+	
+	
