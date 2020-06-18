@@ -79,6 +79,48 @@
 		- For indoor environment looks fabulous. Do not need explicit loop closure to get good performance. 
 		- Dense map just reproject the image onto the plane. --> Can we do the same for moving cars?
 		- **Dynamic object SLAM**
+- Tracking without vision
+	- Jakob Engel
+	- TLIO: tight learned inertial odo
+	- Why useful? low power, privacy
+	- IMU measures the rotaitonal velocity and linear acc. Integrating rotational velocity and double-integrating linear acc.
+	- conventional VIO
+	![](assets/monday/monday_12.jpg)
+	- long term drift of IMU is huge. Can we replace vision with another source of information?
+		- attach to the foot or wrist and
+		- ML to learn how people move
+			- RIDI (robust IMU double integration)
+	- TLIO motion model learning: use network to odometry (only displacement vector) in 1s from IMU input, used together with EKF
+- [Upgrading optical flow to scene flow](http://openaccess.thecvf.com/content_CVPR_2020/papers/Yang_Upgrading_Optical_Flow_to_3D_Scene_Flow_Through_Optical_Expansion_CVPR_2020_paper.pdf)
+	- [youtube talk](https://youtu.be/aOkLGcspoyY?t=24046)
+	- Deva Ramanan@CMU, Argo AI
+	- optical flow vs scene flow
+	![](assets/monday/monday_13.jpg)
+	![](assets/monday/monday_14.jpg)
+	- Scale changes reveal relative detph
+		- Now eliminates 1 DoF, we know the direction of the 3D scene flow
+	- Depth uncertainty
+		- uncertainty through discretization
+		- Stitching depth map based on confidence score
+	![](assets/monday/monday_15.jpg)
+- [Monocular 3D](https://youtu.be/aOkLGcspoyY?t=28052	)
+	- Xiaoming Liu@MSU
+	- Monocular [image based](https://github.com/patrick-llgc/Learning-Deep-Learning/blob/master/paper_notes/m3d_rpn.md) and [video based](kinematic 3d object detection in monocular video) (under review) 3D object detection 
+	- kinematic 3D object detection with mono videos
+	![](assets/monday/monday_16.jpg)
+	![](assets/monday/monday_17.jpg)
+	- use a 3D kalman filter to limit constraints
+	![](assets/monday/monday_18.jpg)
+	![](assets/monday/monday_19.jpg)
+	- Video based 2D/3D object detection
+		- physical model constrained only to move in the direction of orientation
+		- Self-balancing IoU that encourages higher conf for better IoU (localization)
+		![](assets/monday/monday_21.jpg)
+		- overall architecture
+		![](assets/monday/monday_22.jpg)
+	- limitation in mono3D is mainly due to poor localization (at lower IoU threshold, recall is higher)
+	![](assets/monday/monday_23.jpg)
+
 
 ## [Safe Artificial Intelligence for Automated Driving](https://sites.google.com/view/saiad2020/home?authuser=0)
 - [conference page with videos and slides](http://cvpr20.com/safe-artificial-intelligence-for-automated-driving/)
