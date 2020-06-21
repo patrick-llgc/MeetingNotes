@@ -283,7 +283,7 @@ All talks and slides are uploaded.
 	- Can be used in many DL frameworks, including pytorch.
 
 	
-## [SCALABILITY IN AUTONOMOUS DRIVING](https://sites.google.com/view/cvpr20-scalability) ([video on youtube](https://www.youtube.com/watch?v=XvTS57jJQF8&feature=youtu.be))
+## [SCALABILITY IN AUTONOMOUS DRIVING](https://sites.google.com/view/cvpr20-scalability) ([video on youtube](https://sites.google.com/view/cvpr20-scalability/archived-talks/keynotes?authuser=0))
 - Scaling data and data scaling (with simulation and GAN)
 	- Paul Newman, Oxbotica & University of Oxford
 	- The four questions of AD
@@ -303,7 +303,22 @@ All talks and slides are uploaded.
 		![](assets/monday/monday_06.jpg)
 		- Use semantic map to modulate what to manipulate
 		- class swapping (tree to and from building)
-- Andrej Karpathy
+- [Alex Kendall](https://www.youtube.com/watch?v=rfXQH3CyL4Q)
+	- Data efficient learning system
+	- End to end, but that can be decoded to human interpretable tasks (optical flow, semantic segmentation, etc). These tasks are not necessarily the optimal tasks for AD
+	- Imitation learning and reinforcement learning
+	- traffic light and merging
+	![](assets/monday/monday_24.jpg)
+	![](assets/monday/monday_25.jpg)
+	![](assets/monday/monday_26.jpg)
+- [Kris Kitani](https://www.youtube.com/watch?v=gN-fEfv02Dc)
+	- standard 3DMOT
+		- sensor data --> detection --> association --> evaluation
+	- Kris Kitani is citing my graph from [my blog on mono3DOD](https://towardsdatascience.com/monocular-3d-object-detection-in-autonomous-driving-2476a3c7f57e) :)
+	![](assets/monday/monday_27.jpg)
+	- 3DMOT is still evaluated with 2D methods. Need to extend to [3D metrics](https://github.com/xinshuoweng/AB3DMOT)
+	![](assets/monday/monday_28.jpg)
+- [Andrej Karpathy](https://www.youtube.com/watch?v=g2R2T631x7k)
 	- Tesla Autopilot
 	- Navigate on Autopilot
 	- Stops on Autopilot
@@ -317,7 +332,36 @@ All talks and slides are uploaded.
 	![](assets/monday/monday_11.jpg) 
 	- Corner cases
 	![](assets/monday/monday_10.jpg) 
+	- BEVNet
+		- Image stitching with neural network
+		- Orthographic feature transforms
+		- Temporal smoothing
+		![](assets/monday/monday_29.jpg)
 	
+		- Simply projecting out pixels looks terrible
+		![](assets/monday/monday_30.jpg)
+		- Uses main/fisheye, front left and front right
+		- Observe arbitrary geometry and try to predict the BEV
+		![](assets/monday/monday_31.jpg)
+
+## [Waymo open dataset (WOD) challenge](https://www.youtube.com/watch?v=9g9GsI33ol8)
+- Lidar object detection
+	- data augmentation
+	![](assets/monday/monday_33.jpg)
 	
-	
-	
+## Autonomous Driving Workshop
+- [Embodied perception in-the-wild](http://cvpr20.com/event/invited-talk-deva-ramanan/)
+- [A day in the life of a self-driving truck | Andreas Wendel, CVPR 2020](https://www.youtube.com/watch?v=6l5fZRtUy9Y)
+	- Large trucks are hard to handle even in lidar. 
+	![](assets/friday/friday_01.jpg) 
+	- More sensors means more opportunity to break down
+		- How to handle sensor failures in the field
+	![](assets/friday/friday_02.jpg) 
+	- Pothole avoidance on the highway
+		- Feels it the first time, and avoid its. Build a think map, instead of full blown HD Map.
+	![](assets/friday/friday_03.jpg) 
+	- Number of miles needed to build a safety cage depends on ODD (operational design domain)
+	- Lessons
+		- constrain the problem. Know when you step outside the bounds
+		- Get all parts good enough rather than perfect
+		- Be safe in all respects. It will make you go faster
