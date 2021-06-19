@@ -52,17 +52,9 @@
 				<dict>
 					<key>fileNames</key>
 					<array>
-						<string>~/Desktop/monday copy 3/Screen Shot 2020-06-15 at 11.05.59 AM.png</string>
-						<string>~/Desktop/monday copy 3/Screen Shot 2020-06-15 at 9.13.48 AM.png</string>
-						<string>~/Desktop/monday copy 3/Screen Shot 2020-06-15 at 3.23.44 PM.png</string>
-						<string>~/Desktop/monday copy 3/Screen Shot 2020-06-15 at 3.40.03 PM.png</string>
-						<string>~/Desktop/monday copy 3/Screen Shot 2020-06-15 at 9.20.33 AM.png</string>
-						<string>~/Desktop/monday copy 3/Screen Shot 2020-06-15 at 11.04.55 AM.png</string>
-						<string>~/Desktop/monday copy 3/Screen Shot 2020-06-15 at 3.25.02 PM.png</string>
-						<string>~/Desktop/monday copy 3/Screen Shot 2020-06-15 at 11.04.42 AM.png</string>
-						<string>~/Desktop/monday copy 3/Screen Shot 2020-06-15 at 3.14.48 PM.png</string>
-						<string>~/Desktop/monday copy 3/Screen Shot 2020-06-15 at 3.38.03 PM.png</string>
-						<string>~/Desktop/monday copy 3/Screen Shot 2020-06-15 at 11.05.19 AM.png</string>
+						<string>~/Desktop/orals/orals_03.jpg</string>
+						<string>~/Desktop/orals/monday_02.jpg</string>
+						<string>~/Desktop/orals/monday_01.jpg</string>
 					</array>
 				</dict>
 				<key>BundleIdentifier</key>
@@ -112,8 +104,6 @@
 						<string>0</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
@@ -231,8 +221,6 @@
 						<string>1</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
@@ -279,7 +267,7 @@
 					<dict>
 						<key>tokenizedValue</key>
 						<array>
-							<string>monday</string>
+							<string>orals</string>
 						</array>
 					</dict>
 					<key>ignoreCase</key>
@@ -341,7 +329,7 @@
 					<key>dateToUse</key>
 					<integer>0</integer>
 					<key>defaultName</key>
-					<string>monday</string>
+					<string>orals</string>
 					<key>ignoreCase</key>
 					<true/>
 					<key>includeExtensions</key>
@@ -367,7 +355,7 @@
 					<key>singleItemOption</key>
 					<integer>0</integer>
 					<key>startingNumber</key>
-					<integer>1</integer>
+					<real>1</real>
 					<key>textInput</key>
 					<string></string>
 					<key>textToFind</key>
@@ -707,8 +695,6 @@
 						<string>9</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
@@ -810,8 +796,6 @@
 						<string>0</string>
 					</dict>
 				</dict>
-				<key>conversionLabel</key>
-				<integer>0</integer>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
@@ -825,21 +809,21 @@
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>96176283-DA68-4391-8CAF-B510FB36D2AD</key>
+		<key>15F28C1A-47B6-4CD0-849A-C8A0B862C8F2</key>
 		<dict>
 			<key>from</key>
 			<string>76AB5006-A1E0-40DF-823F-2B5B3D463DD6 - 76AB5006-A1E0-40DF-823F-2B5B3D463DD6</string>
 			<key>to</key>
 			<string>323FF470-517D-43FD-A524-3D9A06BE3C40 - 323FF470-517D-43FD-A524-3D9A06BE3C40</string>
 		</dict>
-		<key>DCA5510E-9369-4B50-9B63-4AD2AD711227</key>
+		<key>545A3723-D71B-4857-BFA9-A212B9418711</key>
 		<dict>
 			<key>from</key>
 			<string>5B8E53E5-F257-4622-87B0-A975161C070F - 5B8E53E5-F257-4622-87B0-A975161C070F</string>
 			<key>to</key>
 			<string>4027872B-D080-476F-996E-B04DB839263F - 4027872B-D080-476F-996E-B04DB839263F</string>
 		</dict>
-		<key>FA5C87FF-54AD-4234-A44B-E6A0218CD998</key>
+		<key>6EAEE78A-F61B-401F-B91D-3E3B1498BA7E</key>
 		<dict>
 			<key>from</key>
 			<string>323FF470-517D-43FD-A524-3D9A06BE3C40 - 323FF470-517D-43FD-A524-3D9A06BE3C40</string>

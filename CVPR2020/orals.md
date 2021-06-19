@@ -16,7 +16,6 @@
 
 
 
-
 ## Poster session
 - [HigherHRNet: Scale-Aware Representation Learning for Bottom-Up Human Pose Estimation]()
 - [A Multi-Task Mean Teacher for Semi-Supervised Shadow Detection]() [Shadow segmentation]
@@ -46,7 +45,15 @@
 	- self-supervised learning for video understanding
 	- video retrival: similar motion pattern
 	- spatial temporal visualization
+	- This seems to be quite similar to [Video Playback Rate Perception for Self-Supervised Spatio-Temporal Representation Learning]()
 - [Learning to Measure the Static Friction Coefficient in Cloth Contact]()
 	- Predicting friction parameter of fabrics with video
 	- simulator to generate synthetic datasets
 	- conv + LSTM + fc
+- [15 Keypoints Is All You Need]()
+	- We track human poses with transformers that are input keypoint sequences. This achieves SOTA accuracy while using 500x fewer FLOPS than optical flow.
+- [Joint Spatial-Temporal Optimization for Stereo 3D Object Tracking]():
+	- deep learning + temporal consistency for optimization 
+- [Warping Residual Based Image Stitching for Large Parallax](https://openaccess.thecvf.com/content_CVPR_2020/papers/Lee_Warping_Residual_Based_Image_Stitching_for_Large_Parallax_CVPR_2020_paper.pdf)
+	- Parallax robust image stithing
+	- [Review of image stiching on Zhihu](https://www.zhihu.com/question/34535199)
